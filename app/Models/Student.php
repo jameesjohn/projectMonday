@@ -20,4 +20,9 @@ class Student extends Model
     {
     	return $this->hasOne('App\Models\Level');
     }
+
+	public function user()
+	{
+		return $this->hasOne('App\Models\User');
+	}
 }
