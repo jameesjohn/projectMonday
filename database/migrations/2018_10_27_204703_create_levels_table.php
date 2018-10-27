@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssignmensTable extends Migration
+class CreateLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateAssignmensTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignmens', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('levels', function (Blueprint $table) {
+            $table->string('id', 36);
+            $table->string('level');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateAssignmensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assignmens');
+        Schema::dropIfExists('levels');
     }
 }
