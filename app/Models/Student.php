@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+	public $incrementing = false;
+
     public function classes()
     {
     	return $this->hasMany('App\Models\StudentClass');
