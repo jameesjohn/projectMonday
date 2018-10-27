@@ -69,7 +69,7 @@
     </div>
 </div>
 
-<div class="container">
+<!-- <div class="container">
    <div class="row">
      <div class="col-lg-7 col-xl-6 mx-auto">
        <div class="card card-signin flex-row my-5">
@@ -108,5 +108,5 @@
        </div>
      </div>
    </div>
- </div>
+ </div> -->
 @endsection

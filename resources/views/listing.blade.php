@@ -21,7 +21,7 @@
         <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
           
             <nav class="navbar navbar-expand-lg">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
               </button>
               <a class="navbar-brand" href="#"><h3 class="masthead-brand"> Portal</h3></a>
@@ -43,13 +43,45 @@
               </div>
             </nav>
 
-          <div role="main" class="cover my-auto">
-            <h1 class="cover-heading">Hello</h1>
-            <p class="lead">Welcome to Electrical Electronics Elearning Platform</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-secondary mt-5">Join a Class</a>
-            </p>
-          </div>
+            <div class="container my-auto">
+                <div role="main" class="cover">
+                <div class="table-responsive">
+                    <table class="table table-hover table-dark">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">First</th>
+                          <th scope="col">Last</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td colspan="2">Larry the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+
+                <p class="lead">
+                  <a href="#" class="btn btn-lg btn-secondary mt-5">Join a Class</a>
+                </p>
+            </div>
+            </div>
 
           <footer class="mastfoot mt-auto">
             <div class="inner">
