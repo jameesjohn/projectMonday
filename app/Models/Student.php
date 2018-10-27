@@ -15,4 +15,9 @@ class Student extends Model
     {
     	return $this->hasMany('App\Model\Assignment');
     }
+
+    public function level()
+    {
+    	return $this->hasOne('App\Models\Level');
+    }
 }
