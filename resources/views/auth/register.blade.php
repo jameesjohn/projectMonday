@@ -12,13 +12,14 @@
              </div> -->
 
              <div class="card-body" id="card-body-margin">
-
+                @include('includes.error')
              <div class="card-body" id="card-body-margin" style="margin-left: -12px;">
                <h5 class="card-title text-center">Register</h5>
-               <form class="form-signin px-auto" method="post" action"register">
+               <form class="form-signin px-auto" method="post" action="/register">
+                @csrf
                  <div class="form-label-group">
-                   <input type="text" name="username" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-                   <label for="inputUserame">Username</label>
+                   <input type="text" name="name" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                   <label for="inputUserame">Name</label>
                  </div>
 
                  <div class="form-label-group">
@@ -38,7 +39,7 @@
                    <label for="inputConfirmPassword">Confirm password</label>
                  </div>
 
-                 <div class="btn-group my-4 w-100">
+                 {{--  <div class="btn-group my-4 w-100">
                    <button type="button" class="btn dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      School Level
                    </button>
@@ -49,7 +50,7 @@
                      <button class="dropdown-item" type="button">Level 4</button>
                      <button class="dropdown-item" type="button">Level 5</button>
                    </div>
-                 </div>
+                 </div>  --}}
 
                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
                  <a class="d-block text-center mt-2" href="#">Sign In</a>
