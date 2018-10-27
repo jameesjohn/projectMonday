@@ -8,6 +8,11 @@ class Student extends Model
 {
     public function classes()
     {
-    	return $this->hasMany('App\Models\SchoolClass');
+    	return $this->hasMany('App\Models\StudentClass');
+    }
+
+    public function assignments()
+    {
+    	return $this->hasMany('App\Model\Assignment');
     }
 }
