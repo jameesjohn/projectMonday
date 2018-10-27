@@ -18,7 +18,7 @@ $factory->define(App\Models\SchoolClass::class, function (Faker $faker) {
 		'id' => $faker->uuid,
 		'lecturer_id' => '',
 		'level_id' => '',
-		'name' => $faker->text,
+		'name' => $faker->word,
 		'schedule'  => $faker->dateTime,
 	];
 });

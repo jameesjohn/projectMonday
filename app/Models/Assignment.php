@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
-    public function class()
+	public $incrementing = false;
+
+
+	public function class()
     {
     	return $this->hasOne('App\Models\SchoolClass');
     }
