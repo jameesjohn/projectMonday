@@ -116,10 +116,17 @@ class page
 }
 
 .dropdown-width{
-  min-width: 23rem;
+  min-width: 20rem;
   background: transparent;
   color: #fff;
 }
 .h1{
   font-size: 3rem;
+}
+
+  /* Small devices (landscape phones, 576px and up)  */
+@media (min-width: 576px) { 
+.btn{
+  /* width: 100%; */
+}
 }

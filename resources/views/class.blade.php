@@ -64,10 +64,10 @@
                 <div class="container">
                         <div class="row pt-5">
                             <div class="col-2"></div>
-                            <div class="col-4">
+                            <div class="col-md-4 col-12 pt-3">
                                 <div class="btn-group">
-                                    <a class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" href="#">
-                                        Pending Assignments
+                                    <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="far fa-clock pr-1"></i>Pending Assignments
                                         <span class="caret"></span>
                                     </a>
                                     <ol class="dropdown-menu dropdown-width">
@@ -86,10 +86,10 @@
                                 </div>
                             </div>
 
-                            <div class="col-4">
+                            <div class="col-md-4 col-12 pt-3">
                                     <div class="btn-group">
-                                        <a class="btn btn-secondary btn-lg dropdown-toggle" data-toggle="dropdown" href="#">
-                                            Past Assignment
+                                        <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" href="#">
+                                                <i class="fas fa-history pr-3"></i>Past Assignment
                                             <span class="caret"></span>
                                         </a>
                                         <ol class="dropdown-menu dropdown-width">
