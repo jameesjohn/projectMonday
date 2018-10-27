@@ -9,28 +9,29 @@
              <!-- <div class="card-img-left d-none d-md-flex">
                 Background image for card set in CSS!
              </div> -->
+
              <div class="card-body" id="card-body-margin">
                <h5 class="card-title text-center">Register</h5>
-               <form class="form-signin px-auto">
+               <form class="form-signin px-auto" method="post" action"register">
                  <div class="form-label-group">
-                   <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                   <input type="text" name="username" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
                    <label for="inputUserame">Username</label>
                  </div>
 
                  <div class="form-label-group">
-                   <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                   <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                    <label for="inputEmail">Email address</label>
                  </div>
                  
                  <hr>
 
                  <div class="form-label-group">
-                   <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                   <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
                    <label for="inputPassword">Password</label>
                  </div>
                  
                  <div class="form-label-group">
-                   <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                   <input type="password" name="password_confirmation" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
                    <label for="inputConfirmPassword">Confirm password</label>
                  </div>
 
