@@ -6,10 +6,7 @@
        <div class="row">
          <div class="col-lg-7 col-xl-6 mx-auto">
            <div class="card card-signin flex-row my-5">
-             <!-- <div class="card-img-left d-none d-md-flex">
-                Background image for card set in CSS!
-             </div> -->
-             <div class="card-body" id="card-body-margin">
+             <div class="card-body" id="card-body-margin" style="margin-left: -12px;">
                <h5 class="card-title text-center">Register</h5>
                <form class="form-signin px-auto">
                  <div class="form-label-group">
@@ -32,6 +29,19 @@
                  <div class="form-label-group">
                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
                    <label for="inputConfirmPassword">Confirm password</label>
+                 </div>
+
+                 <div class="btn-group my-4 w-100">
+                   <button type="button" class="btn dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     School Level
+                   </button>
+                   <div class="dropdown-menu dropdown-menu w-100 bg-dark">
+                     <button class="dropdown-item" type="button">Level 1</button>
+                     <button class="dropdown-item" type="button">Level 2</button>
+                     <button class="dropdown-item" type="button">Level 3</button>
+                     <button class="dropdown-item" type="button">Level 4</button>
+                     <button class="dropdown-item" type="button">Level 5</button>
+                   </div>
                  </div>
 
                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
