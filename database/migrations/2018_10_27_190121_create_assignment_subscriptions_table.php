@@ -14,8 +14,14 @@ class CreateAssignmentSubscriptionsTable extends Migration
     public function up()
     {
         Schema::create('assignment_subscriptions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id', 36);
+            $table->string('assignment_id', 36);
+            $table->string('student_id', 36);
+            $table->string('filename')->nullable();
+            $table->boolean('submitted')->default(0);
             $table->timestamps();
+
+            $table->primary('id');
         });
     }
 
