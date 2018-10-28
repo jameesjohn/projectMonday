@@ -28,11 +28,25 @@ class ClassController extends Controller
     public function joinClass(Request $request)
     {
     	$data = $request->except(['_token']);
-    	$data['student_id'] = Auth::user()->id;
+    	$data['student_id'] = Auth::user()->student->id;
     	$result = $this->studentClassRepository->fillAndSave($data);
 
     	if ($result) {
     		return back()->with('message', 'Class Joined Successfully.');
 	    }
+    }
+
+
+    public function showClass($classId)
+    {
+    	$data['class'] = $this->class->find($classId, ['assignments']);
+	    return view('class', $data);
+    }
+
+    public function myClasses()
+    {
+    	$data['classes'] = $this->studentClassRepository->getByAttributes(['student_id' => Auth::user()->student->id], 'AND', ['class'])->pluck('class');
+
+    	return view('my-classes', $data);
     }
 }

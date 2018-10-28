@@ -22,4 +22,9 @@ class SchoolClass extends Model
     {
     	return $this->belongsTo('App\Models\Lecturer');
     }
+
+    public function assignments()
+    {
+    	return $this->hasMany('App\Models\Assignment', 'class_id');
+    }
 }

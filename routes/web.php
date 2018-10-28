@@ -15,11 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/class', function () {
-    return view('class');
-});
-
+Route::get('/class/list', 'ClassController@myClasses')->name('my.class');
 Route::get('/listing', 'ClassController@list');
+Route::get('/class/{classId}', 'ClassController@showClass')->name('show.class');
 Route::post('/class/join', 'ClassController@joinClass')->name('join.class');
 
 Auth::routes();
