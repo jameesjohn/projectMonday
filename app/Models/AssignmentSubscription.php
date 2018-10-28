@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class AssignmentSubscription extends Model
 {
+	public $fillable = [
+		'id', 'student_id', 'assignment_id', 'submitted', 'filename'
+	];
 
 	public $incrementing = false;
 	public function student()
@@ -20,6 +23,6 @@ class AssignmentSubscription extends Model
 
     public function assignment()
     {
-    	return $this->hasOne('App\Models\Assignment');
+    	return $this->belongsTo('App\Models\Assignment');
     }
 }

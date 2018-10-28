@@ -41,10 +41,15 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 </ul>
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Classes</a>
+                      <a class="nav-link" href="{{ route('class.listing') }}">Classes</a>
                     </li>
+                    @if(Auth::check())
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('my.class') }}">My Classes</a>
+                      </li>
+                    @endif
                     <li class="nav-item">
                       <a class="nav-link" href="#">Forum</a>
                     </li>
@@ -71,12 +76,15 @@
                                         <span class="caret"></span>
                                     </a>
                                     <ol class="dropdown-menu dropdown-width">
-                                        @foreach($assignments as $assignment)
+                                        @forelse($pendingAssignments as $assignment)
                                             <li class=pb-3> {{ strtoupper($assignment->class->name) }}
                                                 <a class="btn btn-primary float-right" href="{{ route('assignment.submit', $assignment->id) }}">Submit</a>
                                             </li>
                                             <div class="dropdown-divider"></div>
-                                        @endforeach
+                                        @empty
+                                            <li class=p-2> No Pending Assignments</li>
+                                            <div class="dropdown-divider"></div>
+                                        @endforelse
                                     </ol>
                                 </div>
                             </div>
@@ -88,14 +96,14 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ol class="dropdown-menu dropdown-width">
-                                                <li class=p-2> BEE 111 </li>
+                                            @forelse($submittedAssignments as $sub)
+                                                <li class=p-2> {{ $sub->assignment->class->name }}</li>
                                                 <div class="dropdown-divider"></div>
-                                                <li class="p-2"> MIA 311</li>
+                                            @empty
+                                                <li class=p-2> No Submitted assignments</li>
                                                 <div class="dropdown-divider"></div>
-                                                <li class="p-2"> FBI 311</li>
-                                                <div class="dropdown-divider"></div>
-                                                <li class="p-2"> CIA 311</li>
-                                            </ol>
+                                            @endforelse
+                                        </ol>
                                     </div>
                                 </div>
                                 <div class="col-2"></div>

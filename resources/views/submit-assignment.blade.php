@@ -63,7 +63,9 @@
                     <div class="col-2"></div>
                     <div class="col-md-4 col-12 pt-3">
                         <form enctype="multipart/form-data" method="post" action="">
-                            <input type="file" name="asssignmentFile">
+                            <input type="file" name="assignmentFile">
+                                @csrf
+                            <button class="btn btn-facebook">Submit</button>
                         </form>
                     </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AssignmentSubscription;
 use App\Repositories\ClassRepository;
 use App\Repositories\StudentClassRepository;
 use Illuminate\Http\Request;
@@ -40,8 +41,16 @@ class ClassController extends Controller
     public function showClass($classId)
     {
     	$class = $this->class->find($classId, ['assignments']);
-    	$data['assignments'] = $class->assignments;
-    	$data['class'] = $class;
+
+	    $conditions = [
+    		    ['student_id', '=', Auth::user()->student->id,],
+		        ['submitted', '=', 1],
+		    ];
+
+	    $data['submittedAssignments'] = AssignmentSubscription::where($conditions)->whereIn('assignment_id', ($class->assignments()->pluck('id')))->get();
+	    $data['pendingAssignments'] = $class->assignments()->whereNotIn('id', ($data['submittedAssignments'])->pluck('assignment_id'))->get();
+
+	    $data['class'] = $class;
 
 	    return view('class', $data);
     }

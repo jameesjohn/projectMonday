@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Repositories\AssignmentRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Ramsey\Uuid\Uuid;
 
 class AssignmentController extends Controller
 {
@@ -23,14 +25,21 @@ class AssignmentController extends Controller
 		return view('submit-assignment', $data);
 	}
 
-	public function saveAssignment($id)
+	public function saveAssignment($id, Request $request)
 	{
-		$assignment = $this->assignment->find($id, ['class']);
-		$data['class'] = $assignment->class;
-		$data['assignment'] = $assignment;
+		$assignment = $this->assignment->find($id);
 
-		return view('submit-assignment', $data);
+		$data['filename'] = $request->assignmentFile->storeAs('assignments', Auth::user()->id . '.pdf');
+		$data['assignment_id'] = $id;
+		$data['submitted'] = 1;
+		$data['student_id'] = Auth::user()->student->id;
+		$data['id'] = Uuid::uuid1();
+		$submitted = $assignment->subscribers()->create($data);
+
+		if ($submitted) {
+			return redirect()->route('show.class', $assignment->class->id);
+		}
+
+		return ['error' => 'Unable to Submit Assignment'];
 	}
-
-
 }

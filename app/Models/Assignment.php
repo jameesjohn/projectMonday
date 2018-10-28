@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Assignment extends Model
 {
@@ -20,6 +21,11 @@ class Assignment extends Model
 
     public function subscribers()
     {
-    	return $this->hasMany('App\Models\AssignmentSubscriptions');
+    	return $this->hasMany('App\Models\AssignmentSubscription');
+    }
+
+    public function setIdAttribute($id)
+    {
+    	return Uuid::uuid1();
     }
 }
