@@ -43,13 +43,13 @@
                    <button type="button" class="btn dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      School Level
                    </button>
-                   <div class="dropdown-menu dropdown-menu w-100 bg-dark" name="level">
-                     <button class="dropdown-item" value="level1" type="button">Level 1</button>
-                     <button class="dropdown-item" value="level2" type="button">Level 2</button>
-                     <button class="dropdown-item" value="level3" type="button">Level 3</button>
-                     <button class="dropdown-item" value="level4" type="button">Level 4</button>
-                     <button class="dropdown-item" value="level5" type="button">Level 5</button>
-                   </div>
+                   <select class="dropdown-menu dropdown-menu w-100 bg-dark" name="level">
+                     <option class="dropdown-item" value="level1" type="button">Level 1</option>
+                     <option class="dropdown-item" value="level2" type="button">Level 2</option>
+                     <option class="dropdown-item" value="level3" type="button">Level 3</option>
+                     <option class="dropdown-item" value="level4" type="button">Level 4</option>
+                     <option class="dropdown-item" value="level5" type="button">Level 5</option>
+                   </select>
                  </div>
 
                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
