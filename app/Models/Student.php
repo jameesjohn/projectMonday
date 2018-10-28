@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+	public $fillable = [
+		'id', 'user_id', 'level_id'
+	];
 	public $incrementing = false;
 
     public function classes()

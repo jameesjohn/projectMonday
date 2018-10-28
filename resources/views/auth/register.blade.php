@@ -26,7 +26,16 @@
                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                    <label for="inputEmail">Email address</label>
                  </div>
-                 
+
+                   <div class="form-label-group">
+                       <select name="level_id" class="form-control" required>
+                                <option value="">Level ...</option>
+                            @foreach($levels as $level)
+                                <option value="{{ $level->id }}">{{ $level->level }}</option>
+                           @endforeach
+                       </select>
+                   </div>
+
                  <hr>
 
                  <div class="form-label-group">
@@ -37,19 +46,6 @@
                  <div class="form-label-group">
                    <input type="password" name="password_confirmation" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
                    <label for="inputConfirmPassword">Confirm password</label>
-                 </div>
-
-                 <div class="btn-group my-4 w-100">
-                   <button type="button" class="btn dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     School Level
-                   </button>
-                   <select class="dropdown-menu dropdown-menu w-100 bg-dark" name="level">
-                     <option class="dropdown-item" value="1" type="button">Level 1</option>
-                     <option class="dropdown-item" value="2" type="button">Level 2</option>
-                     <option class="dropdown-item" value="3" type="button">Level 3</option>
-                     <option class="dropdown-item" value="4" type="button">Level 4</option>
-                     <option class="dropdown-item" value="5" type="button">Level 5</option>
-                   </select>
                  </div>
 
                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>

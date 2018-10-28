@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class AssignmentSubscription extends Model
 {
-	public $incrementing = false;
 
+	public $incrementing = false;
 	public function student()
     {
     	return $this->hasOne('App\Models\Student');
