@@ -20,8 +20,7 @@ class ClassController extends Controller
 
 	public function list()
     {
-    	// ToDo: Filter this with level_id
-    	$data['classes'] = $this->class->all();
+    	$data['classes'] = $this->class->getByAttributes(['level_id' => Auth::user()->student->level_id]);
 
     	return view('listing', $data);
     }

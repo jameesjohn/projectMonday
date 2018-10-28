@@ -53,6 +53,7 @@
                         </div>
                     @endif
                 </div>
+                <br/>
 
                 <div class="row">
                     <div class="col-md-12">
@@ -62,6 +63,7 @@
                     </div>
                 </div>
                 <div role="main" class="cover">
+                    @if ($classes->count() > 0)
                 <div class="table-responsive">
                     <table class="table table-hover table-dark">
                       <thead>
@@ -92,10 +94,12 @@
                       </tbody>
                     </table>
                 </div>
-
-                <p class="lead">
-                  <a href="#" class="btn btn-lg btn-secondary mt-5">Join a Class</a>
-                </p>
+                    @else
+                        <h1> No classes available to join for your level yet. Check back.</h1>
+                    @endif
+                {{--<p class="lead">--}}
+                  {{--<a href="#" class="btn btn-lg btn-secondary mt-5">Join a Class</a>--}}
+                {{--</p>--}}
             </div>
             </div>
 

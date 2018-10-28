@@ -26,6 +26,15 @@
                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                    <label for="inputEmail">Email address</label>
                  </div>
+
+                   <div class="form-label-group">
+                       <select name="level_id" class="form-control" required>
+                                <option value="">Level ...</option>
+                            @foreach($levels as $level)
+                                <option value="{{ $level->id }}">{{ $level->level }}</option>
+                           @endforeach
+                       </select>
+                   </div>
                  
                  <hr>
 
@@ -38,19 +47,6 @@
                    <input type="password" name="password_confirmation" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
                    <label for="inputConfirmPassword">Confirm password</label>
                  </div>
-
-                 {{--  <div class="btn-group my-4 w-100">
-                   <button type="button" class="btn dropdown-toggle btn-lg btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     School Level
-                   </button>
-                   <div class="dropdown-menu dropdown-menu w-100 bg-dark">
-                     <button class="dropdown-item" type="button">Level 1</button>
-                     <button class="dropdown-item" type="button">Level 2</button>
-                     <button class="dropdown-item" type="button">Level 3</button>
-                     <button class="dropdown-item" type="button">Level 4</button>
-                     <button class="dropdown-item" type="button">Level 5</button>
-                   </div>
-                 </div>  --}}
 
                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
                  <a class="d-block text-center mt-2" href="#">Sign In</a>

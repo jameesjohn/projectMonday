@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class SchoolClass extends Model
 {
-    protected $table = '';
+    protected $table = 'classes';
 
+    public $fillable = [
+    	'id', 'user_id', ''
+    ];
     public $incrementing = false;
 
     public function students()

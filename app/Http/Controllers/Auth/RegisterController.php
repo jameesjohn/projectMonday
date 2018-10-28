@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Level;
+use App\Models\Student;
+use App\Repositories\SchoolClassRepository;
+use App\Repositories\StudentRepository;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +14,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 use Ramsey\Uuid\Uuid;
 
-use App\Repositories\Baserepository;
 class RegisterController extends Controller
 {
     /*
@@ -31,14 +34,18 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $redirectTo = '/home';
+
+	private $student;
+
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @param StudentRepository $student
+	 */
+    public function __construct(StudentRepository $student)
     {
+    	$this->student = $student;
         $this->middleware('guest');
     }
 
@@ -66,12 +73,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'id' => Uuid::uuid1(),
             'name' => $data['name'],
             'email' => $data['email'],
             'role' => 'student',
             'password' => Hash::make($data['password']),
         ]);
+
+        if ($user) {
+        	$newData = [
+        		'user_id' => $user->id,
+		        'level_id' => $data['level_id']
+	        ];
+
+        	$this->student->fillAndSave($newData);
+
+        	return $user;
+        }
     }
+
+	/**
+	 * Show the application registration form.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function showRegistrationForm()
+	{
+		$data['levels'] = Level::all();
+		return view('auth.register', $data);
+	}
 }
