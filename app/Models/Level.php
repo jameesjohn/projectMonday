@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Level extends Model
 {
-	public $incrementing = false;
+
+    public $incrementing = false;
+    
 
 	public $fillable = [
 		'id', 'level'
