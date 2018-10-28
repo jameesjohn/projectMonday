@@ -13,6 +13,7 @@ class AssignmentController extends Controller
 
 	public function __construct(AssignmentRepository $assignment)
 	{
+		$this->middleware('auth');
 		$this->assignment = $assignment;
 	}
 

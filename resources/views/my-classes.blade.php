@@ -24,13 +24,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
         </button>
-        <a class="navbar-brand" href="#"><h3 class="masthead-brand"> Portal</h3></a>
+        <a class="navbar-brand" href="/"><h3 class="masthead-brand"> Portal</h3></a>
 
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             </ul>
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             <li class="nav-item">
                 <a class="nav-link" href="#">Classes</a>
             </li>
@@ -57,9 +57,9 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h3>
-                    Classes Available to your Level
-                </h3>
+                <h1>
+                    Classes I've Joined
+                </h1>
             </div>
         </div>
         <div role="main" class="cover">
@@ -95,11 +95,12 @@
                     </table>
                 </div>
             @else
-                <h1> No classes available to join for your level yet. Check back.</h1>
+                <h1> You've not joined a class yet.</h1>
+                <p class="lead">
+                    <a href="{{ route('class.listing') }}" class="btn btn-lg btn-secondary mt-5">Join a Class</a>
+                </p>
             @endif
-            {{--<p class="lead">--}}
-            {{--<a href="#" class="btn btn-lg btn-secondary mt-5">Join a Class</a>--}}
-            {{--</p>--}}
+
         </div>
     </div>
 
