@@ -44,11 +44,11 @@
                      School Level
                    </button>
                    <select class="dropdown-menu dropdown-menu w-100 bg-dark" name="level">
-                     <option class="dropdown-item" value="level1" type="button">Level 1</option>
-                     <option class="dropdown-item" value="level2" type="button">Level 2</option>
-                     <option class="dropdown-item" value="level3" type="button">Level 3</option>
-                     <option class="dropdown-item" value="level4" type="button">Level 4</option>
-                     <option class="dropdown-item" value="level5" type="button">Level 5</option>
+                     <option class="dropdown-item" value="1" type="button">Level 1</option>
+                     <option class="dropdown-item" value="2" type="button">Level 2</option>
+                     <option class="dropdown-item" value="3" type="button">Level 3</option>
+                     <option class="dropdown-item" value="4" type="button">Level 4</option>
+                     <option class="dropdown-item" value="5" type="button">Level 5</option>
                    </select>
                  </div>
 
