@@ -19,9 +19,8 @@ Route::get('/class', function () {
     return view('class');
 });
 
-Route::get('/listing', function () {
-    return view('listing');
-});
+Route::get('/listing', 'ClassController@list');
+Route::post('/class/join', 'ClassController@joinClass')->name('join.class');
 
 Auth::routes();
 

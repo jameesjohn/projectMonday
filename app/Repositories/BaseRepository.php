@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Contract\ModelRepository;
 use Illuminate\Support\Facades\Auth;
+use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
@@ -22,6 +23,11 @@ abstract class BaseRepository implements ModelRepository
 		$this->model = $model;
 	}
 
+	/**
+	 * Generates Uuid
+	 * @return UuidInterface
+	 * @throws \Exception
+	 */
 	protected function generateUuid(): UuidInterface
 	{
 		return Uuid::uuid1();
@@ -90,6 +96,7 @@ abstract class BaseRepository implements ModelRepository
 	{
 		return $this->findBy($this->model->getKeyName(), $id, $relations);
 	}
+
 	/**
 	 * Find a record by an attribute.
 	 * Fails if no model is found.
@@ -146,6 +153,7 @@ abstract class BaseRepository implements ModelRepository
 		}
 		return $query->get();
 	}
+
 	/**
 	 * Fills out an instance of the model
 	 * with $attributes.
@@ -153,9 +161,11 @@ abstract class BaseRepository implements ModelRepository
 	 * @param array $attributes
 	 *
 	 * @return \Illuminate\Database\Eloquent\Model
+	 * @throws
 	 */
 	public function fill($attributes)
 	{
+		$attributes['id'] = $this->generateUuid();
 		return $this->model->fill($attributes);
 	}
 
@@ -166,9 +176,11 @@ abstract class BaseRepository implements ModelRepository
 	 * @param array $attributes
 	 *
 	 * @return \Illuminate\Database\Eloquent\Model
+	 * @throws
 	 */
 	public function fillAndSave($attributes)
 	{
+		$attributes['id'] = $this->generateUuid();
 		$this->model->fill($attributes);
 		$this->model->save();
 		return $this->model;

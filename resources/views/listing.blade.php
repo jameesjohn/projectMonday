@@ -44,35 +44,51 @@
             </nav>
 
             <div class="container my-auto">
+                <div class="row">
+                    @if(session('message'))
+                        <div class="col-md-12">
+                            <div class="alert alert-success">
+                                {{ session('message') }}
+                            </div>
+                        </div>
+                    @endif
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            Classes Available to your Level
+                        </h3>
+                    </div>
+                </div>
                 <div role="main" class="cover">
                 <div class="table-responsive">
                     <table class="table table-hover table-dark">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">First</th>
-                          <th scope="col">Last</th>
-                          <th scope="col">Handle</th>
+                          <th scope="col">Class Name</th>
+                          <th scope="col">Lecturer</th>
+                          <th scope="col">Schedule</th>
+                          <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
+                      @foreach($classes as $key => $class)
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                          <th scope="row">{{ $key+1 }}</th>
+                          <td>{{ $class->name }}</td>
+                          <td>{{ $class->lecturer->user->name }}</td>
+                          <td> {{ $class->schedule }}</td>
+                          <td>
+                              <form method="post" action="{{ route('join.class') }}">
+                                  @csrf
+                                  <input type="hidden" value="{{ $class->id }}" name="class_id">
+                                  <button class="btn btn-danger">Join</button>
+                              </form>
+                          </td>
                         </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td colspan="2">Larry the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                      @endforeach
                       </tbody>
                     </table>
                 </div>
