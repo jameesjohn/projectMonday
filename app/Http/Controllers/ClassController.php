@@ -39,7 +39,10 @@ class ClassController extends Controller
 
     public function showClass($classId)
     {
-    	$data['class'] = $this->class->find($classId, ['assignments']);
+    	$class = $this->class->find($classId, ['assignments']);
+    	$data['assignments'] = $class->assignments;
+    	$data['class'] = $class;
+
 	    return view('class', $data);
     }
 

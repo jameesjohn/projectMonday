@@ -19,7 +19,10 @@ class DatabaseSeeder extends Seeder
 
 	    factory(App\User::class, 4)->create(['role' => 'lecturer'])->each(function (App\User $user) {
 	    	$lecturer = factory(App\Models\Lecturer::class)->make(['user_id' => $user->id]);
-	    	factory(App\Models\SchoolClass::class, 3)->create(['lecturer_id' => $lecturer->id, 'level_id' => $this->getRandomLevelId()]);
+	    	$classes = factory(App\Models\SchoolClass::class, 3)->create(['lecturer_id' => $lecturer->id, 'level_id' => $this->getRandomLevelId()]);
+			$classes->each(function ($class) {
+				factory(App\Models\Assignment::class, 3)->create(['class_id' => $class->id]);
+			});
 	    	$user->lecturers()->save($lecturer);
 	    });
     }

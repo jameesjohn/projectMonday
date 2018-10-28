@@ -56,7 +56,7 @@
 
             <main class="my-auto">
                 <h1 class="h1">
-                    Welcome to <span>Electromagnetic</span> Class
+                    Welcome to <span>{{ $class->name }}</span> Class
                 </h1>
                 <h5>
                     You have joined the class and would be notified of classes and assignments
@@ -71,17 +71,12 @@
                                         <span class="caret"></span>
                                     </a>
                                     <ol class="dropdown-menu dropdown-width">
-                                        <li class=pb-3> MCM 101
-                                            <a class="btn btn-primary float-right" href="#">Submit</a>
-                                        </li>
-                                        <div class="dropdown-divider"></div>
-                                        <li class="pb-3"> PHY 312
-                                            <a class="btn btn-primary float-right" href="#">Submit</a>
-                                        </li>
-                                        <div class="dropdown-divider"></div>
-                                        <li class=""> WCE 402
-                                            <a class="btn btn-primary float-right" href="#">Submit</a>
-                                        </li>
+                                        @foreach($assignments as $assignment)
+                                            <li class=pb-3> {{ strtoupper($assignment->class->name) }}
+                                                <a class="btn btn-primary float-right" href="{{ route('assignment.submit', $assignment->id) }}">Submit</a>
+                                            </li>
+                                            <div class="dropdown-divider"></div>
+                                        @endforeach
                                     </ol>
                                 </div>
                             </div>

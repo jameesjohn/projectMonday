@@ -20,6 +20,8 @@ Route::get('/listing', 'ClassController@list');
 Route::get('/class/{classId}', 'ClassController@showClass')->name('show.class');
 Route::post('/class/join', 'ClassController@joinClass')->name('join.class');
 
-Auth::routes();
+Route::get('/assignment/submit/{id}', 'AssignmentController@submitAssignment')->name('assignment.submit');
+Route::post('/assignment/submit/{id}', 'AssignmentController@submitAssignment')->name('submit.assignment.final');
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

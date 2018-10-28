@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
+	public $fillable = [
+		'id', 'class_id', 'content'
+	];
+
 	public $incrementing = false;
 
 
 	public function class()
     {
-    	return $this->hasOne('App\Models\SchoolClass');
+    	return $this->belongsTo('App\Models\SchoolClass', 'class_id');
     }
 
     public function subscribers()
