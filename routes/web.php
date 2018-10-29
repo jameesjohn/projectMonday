@@ -27,6 +27,7 @@ Route::get('/assignment', 'AssignmentController@createAssignment')->name('create
 Route::post('/assignment', 'AssignmentController@storeAssignment')->name('store.assignment')->middleware(['auth', 'lecturer']);
 
 Route::get('/lecturer/home', 'LecturerController@index')->name('lecturer.home');
+Route::get('/lecturer/assignments', 'LecturerController@index')->name('assignments');
 Route::get('/lecturer/classes', 'LecturerController@classes')->name('lecturer.classes');
 Route::post('/lecturer/createClass', 'LecturerController@createClass')->name('create.class');
 Route::get('/lecturer/newclass', 'LecturerController@newClass')->name('new.class');

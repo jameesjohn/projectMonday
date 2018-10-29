@@ -47,8 +47,13 @@
         <h1 class="cover-heading">Hello</h1>
         <p class="lead">Welcome to Electrical Electronics Elearning Platform</p>
         <p class="lead">
-            <a href="{{ route('class.listing') }}" class="btn btn-lg btn-secondary mt-5">Create a Class</a>
+            <a href="{{ route('new.class') }}" class="btn btn-lg btn-secondary mt-5">Create a Class</a>
             <a href="{{ route('create.assignment') }}" class="btn btn-lg btn-secondary mt-5">Create Assignment</a>
+            <a href="{{ route('assignments') }}" class="btn btn-lg btn-secondary mt-5">Show Assignments</a>
+        </p>
+
+        <p class="lead">
+            <a href="{{ route('lecturer.classes') }}" class="btn btn-lg btn-secondary mt-5">Show Classes</a>
         </p>
     </div>
 

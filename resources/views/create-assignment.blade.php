@@ -115,14 +115,14 @@
                                             </div>
                                             <div class="modal-body">
                                                 <form method="post" enctype="multipart/form-data">
-                                                    @csrf
+                                                  @csrf
                                                   <textarea rows="5" name="content" placeholder="Your assignment content goes here" class="form-control mb-4"></textarea>
                                                     <div class="form-label-group">
                                                         <select name="class_id" class="form-control" required>
                                                                     <option value="">Class ...</option>
                                                                 @foreach($classes as $class)
                                                                     <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                                            @endforeach
+                                                                @endforeach
                                                         </select>
                                                     </div>
                                                 
@@ -139,11 +139,16 @@
                         </div>
                         
                         <div class="col-md-4 col-12 pt-3">
-                            <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModalLong">
-                                Click here to add assignment
-                            </button>
+                            <p class="lead">
+                                <button type="button" class="btn btn-lg btn-secondary mt-5" data-toggle="modal" data-target="#exampleModalLong">
+                                    Click here to add assignment
+                                </button>
+                                <a href="{{ route('lecturer.home') }}" class="btn btn-lg btn-secondary mt-5">Lecturer Home</a>
+                            </p>
+
                             
                     </div>
+
 
                     <div class="col-2"></div>
 

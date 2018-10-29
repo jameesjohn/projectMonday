@@ -107,7 +107,7 @@
 					@foreach($classes as $key => $class)
 					<tr>
 						<th scope="row">{{ $key+1 }}</th>
-						<td><a href="{{ route('show.class', $class->id) }}">{{ $class->name }}</a></td>
+						<td>{{ $class->name }}</td>
 						<td>{{ $class->lecturer->user->name }}</td>
 						<td> {{ $class->schedule }}</td>
 						{{--<td>--}}
@@ -125,6 +125,7 @@
 
 				<p class="lead">
 					<a href="{{ route('new.class') }}" class="btn btn-lg btn-secondary mt-5">Create a Class</a>
+					<a href="{{ route('lecturer.home') }}" class="btn btn-lg btn-secondary mt-5">Lecturer Home</a>
 				</p>
 			@else
 			<h1> You've not created a class yet.</h1>
