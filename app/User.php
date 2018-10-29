@@ -30,9 +30,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function lecturers()
+    public function lecturer()
     {
-    	return $this->hasMany('App\Models\Lecturer');
+    	return $this->hasOne('App\Models\Lecturer');
     }
 
 	public function student()

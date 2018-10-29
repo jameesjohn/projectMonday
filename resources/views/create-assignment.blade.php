@@ -51,13 +51,52 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Lectures</a>
                 </li>
+
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        @if (Route::has('register'))
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> @endif
+                    </li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
             </div>
         </nav>
 
         <main class="my-auto">
             <h1 class="h1">
-                Create Assignment for your students
+                Create Assignment for your student
             </h1>
+
+            <div class="row">
+                @if(session('message'))
+                    <div class="col-md-12">
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    </div>
+                @endif
+            </div>
+
             <div class="container">
                 <div class="row pt-5">
                     {{-- <div class="col-2"></div> --}}
@@ -69,7 +108,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="exampleModalLongTitle">Upload Assignment Here</h5>
+                                            <h4 class="modal-title" id="exampleModalLongTitle">Create new Assignment</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -77,7 +116,7 @@
                                             <div class="modal-body">
                                                 <form method="post" enctype="multipart/form-data">
                                                     @csrf
-                                                  <textarea rows="5" class="form-control mb-4"></textarea>
+                                                  <textarea rows="5" name="content" placeholder="Your assignment content goes here" class="form-control mb-4"></textarea>
                                                     <div class="form-label-group">
                                                         <select name="class_id" class="form-control" required>
                                                                     <option value="">Class ...</option>
@@ -90,7 +129,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Upload</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
                                             </form>
                                             </div>
                                         </div>
@@ -101,7 +140,7 @@
                         
                         <div class="col-md-4 col-12 pt-3">
                             <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModalLong">
-                           Upload Assignment Here
+                                Click here to add assignment
                             </button>
                             
                     </div>

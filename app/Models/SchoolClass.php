@@ -9,7 +9,7 @@ class SchoolClass extends Model
     protected $table = 'classes';
 
     public $fillable = [
-    	'id', 'user_id', ''
+    	'id', 'lecturer_id', 'level_id', 'name'
     ];
     public $incrementing = false;
 
