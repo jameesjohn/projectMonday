@@ -58,6 +58,8 @@
 
             <button class="btn btn-lg btn-secondary mt-5">Create Class</button>
         </form>
+
+        <a href="{{ route('lecturer.home') }}" class="btn btn-lg btn-secondary mt-5">Lecturer Home</a>
     </div>
 
     <footer class="mastfoot mt-auto">
