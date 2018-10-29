@@ -6,6 +6,8 @@ use App\Repositories\AssignmentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
+use App\Models\StudentClass;
+use App\Models\Assignment;
 
 class AssignmentController extends Controller
 {
@@ -42,5 +44,21 @@ class AssignmentController extends Controller
 		}
 
 		return ['error' => 'Unable to Submit Assignment'];
+	}
+    
+    public function createAssignment()
+	{
+		$classes = StudentClass::all();
+		return view('create-assignment', compact('classes'));
+	}
+
+	public function storeAssignment(Request $request)
+	{
+		$assignment = new Assignment;
+		$assignment->content = $request->input('content');
+		$assignment->class_id = $request->input('class_id');
+		$assignment->save();
+
+		return back();
 	}
 }
