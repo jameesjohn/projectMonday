@@ -24,7 +24,7 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
               </button>
-              <a class="navbar-brand" href="#"><h3 class="masthead-brand"> Portal</h3></a>
+              <a class="navbar-brand" href="/"><h3 class="masthead-brand"> Portal</h3></a>
 
 
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -32,13 +32,13 @@
                 </ul>
                       <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     <li class="nav-item">
-                      <a class="nav-link" href="/class">Classes</a>
+                      <a class="nav-link" href="">Classes</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/forum">Forum</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="forum">Lectures</a>
+                      <a class="nav-link" href="/forum">Lectures</a>
                     </li>
               </div>
             </nav>
@@ -47,7 +47,7 @@
             <h1 class="cover-heading">Hello</h1>
             <p class="lead">Welcome to Electrical Electronics Elearning Platform</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-secondary mt-5">Join a Class</a>
+                <a href="{{ route('class.listing') }}" class="btn btn-lg btn-secondary mt-5">Join a Class</a>
             </p>
           </div>
 

@@ -16,4 +16,9 @@ class StudentClass extends Model
     {
     	return $this->hasOne('App\Model\Student');
     }
+
+    public function class()
+    {
+    	return $this->belongsTo('App\Models\SchoolClass');
+    }
 }
