@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Project Monday</title>
+        <title>EEE E-Learning Portal</title>
 
         <link href="{{ asset('css/app.css')}}" rel="stylesheet">
         <link href="{{ asset('css/styles.css')}}" rel="stylesheet">
@@ -24,7 +24,7 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
               </button>
-              <a class="navbar-brand" href="/"><h3 class="masthead-brand"> Portal</h3></a>
+              <a class="navbar-brand" href="/"><h3 class="masthead-brand"> EEE E-Learning Portal </h3></a>
 
 
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -40,14 +40,41 @@
                     <li class="nav-item">
                       <a class="nav-link" href="/forum">Lectures</a>
                     </li>
+@guest
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+</li>
+<li class="nav-item">
+    @if (Route::has('register'))
+    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> @endif
+</li>
+@else
+<li class="nav-item dropdown">
+    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+</li>
+@endguest
               </div>
             </nav>
 
           <div role="main" class="cover my-auto">
-            <h1 class="cover-heading">Hello</h1>
-            <p class="lead">Welcome to Electrical Electronics Elearning Platform</p>
-            <p class="lead">
-                <a href="{{ route('class.listing') }}" class="btn btn-lg btn-secondary mt-5">Join a Class</a>
+            <h1 class="cover-heading mx-5">Welcome to Electrical and Electronics Engineering E-Learning Platform</h1>
+            {{-- <p class="lead">Welcome to Electrical Electronics Elearning Platform</p> --}}
+            <p class="lead mt-3">
+                <a href="{{ route('class.listing') }}" class="btn btn-lg btn-secondary mt-5 mx-3">Enter Class</a>
             </p>
           </div>
 
