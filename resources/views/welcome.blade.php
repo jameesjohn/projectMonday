@@ -19,7 +19,7 @@
 
 
         <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
-          
+
             <nav class="navbar navbar-expand-lg">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
@@ -53,7 +53,7 @@
 
           <footer class="mastfoot mt-auto">
             <div class="inner">
-              <p>Designed with <i class="fas fa-heart"></i> by bitsofcodes</p>
+              <p>Designed with <i class="fas fa-heart"></i> by Elisha Ukpong</p>
             </div>
           </footer>
         </div>
