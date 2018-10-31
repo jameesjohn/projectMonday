@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 			$classes->each(function ($class) {
 				factory(App\Models\Assignment::class, 3)->create(['class_id' => $class->id]);
 			});
-	    	$user->lecturers()->save($lecturer);
+	    	$user->lecturer()->save($lecturer);
 	    });
     }
 

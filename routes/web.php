@@ -23,8 +23,14 @@ Route::post('/class/join', 'ClassController@joinClass')->name('join.class');
 Route::get('/assignment/submit/{id}', 'AssignmentController@submitAssignment')->name('assignment.submit');
 Route::post('/assignment/submit/{id}', 'AssignmentController@saveAssignment')->name('submit.assignment.final');
 
-Route::get('/assignment', 'AssignmentController@createAssignment')->name('create.assignment');
-Route::post('/assignment', 'AssignmentController@storeAssignment')->name('store.assignment');
+Route::get('/assignment', 'AssignmentController@createAssignment')->name('create.assignment')->middleware(['auth', 'lecturer']);
+Route::post('/assignment', 'AssignmentController@storeAssignment')->name('store.assignment')->middleware(['auth', 'lecturer']);
+
+Route::get('/lecturer/home', 'LecturerController@index')->name('lecturer.home');
+Route::get('/lecturer/assignments', 'LecturerController@index')->name('assignments');
+Route::get('/lecturer/classes', 'LecturerController@classes')->name('lecturer.classes');
+Route::post('/lecturer/createClass', 'LecturerController@createClass')->name('create.class');
+Route::get('/lecturer/newclass', 'LecturerController@newClass')->name('new.class');
 
 
 

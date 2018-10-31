@@ -16,6 +16,7 @@ class ClassController extends Controller
 	public function __construct(ClassRepository $class, StudentClassRepository $studentClassRepository)
 	{
 		$this->middleware('auth');
+		$this->middleware('student');
 		$this->class = $class;
 		$this->studentClassRepository = $studentClassRepository;
 	}
