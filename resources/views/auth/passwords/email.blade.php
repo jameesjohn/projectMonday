@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.listing')
 
-@section('content')
+@section('listing.content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-5 text-dark">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
@@ -17,11 +17,10 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group row ">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                            <div class="col-md-8 mx-auto">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -31,8 +30,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group row mb-0 mx-auto">
+                            <div class="col-md-9 offset-md-1">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Send Password Reset Link') }}
                                 </button>

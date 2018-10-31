@@ -1,31 +1,31 @@
 
-            @extends('layouts.listing')
+    @extends('layouts.listing')
    @section('listing.content')
-       <div class="row">
-        @if(session('message'))
-        <div class="col-md-12">
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
+        <div class="row">
+            @if(session('message'))
+                <div class="col-md-12">
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                </div>
+            @endif
         </div>
-        @endif
-    </div>
     <br/>
 
-    <div class="row">
-        <div class="col-md-12">
-            <h3>
-                Classes Available to your Level
-            </h3>
-        </div>
-    </div>
     <div role="main" class="cover">
         @if ($classes->count() > 0)
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        Classes Available to your Level
+                    </h3>
+                </div>
+            </div>
         <div class="table-responsive">
             <table class="table table-hover table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">S/N</th>
                         <th scope="col">Class Name</th>
                         <th scope="col">Lecturer</th>
                         <th scope="col">Schedule</th>
@@ -38,7 +38,7 @@
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $class->name }}</td>
                         <td>{{ $class->lecturer->user->name }}</td>
-                        <td> {{ $class->schedule }}</td>
+                        <td> {{ $class->created_at->diffForHumans() }}</td>
                         <td>
                             <form method="post" action="{{ route('join.class') }}">
                                 @csrf

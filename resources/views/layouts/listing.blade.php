@@ -8,6 +8,7 @@
     <title>Project Monday</title>
 
     <link href="{{ asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css')}}" rel="stylesheet">
     <link href="{{ asset('fontawesome/css/all.min.css')}}" rel="stylesheet">
 
@@ -32,7 +33,7 @@
 
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
                 </ul>
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 
@@ -54,11 +55,11 @@
                                                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('class.listing') }}">All Classes</a>
-                        <a class="dropdown-item" href="{{ route('my.class') }}">My Classes</a>
-                        <a class="dropdown-item" href="#">Forum</a>
-                        <a class="dropdown-item" href="#">Lectures</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <a class="dropdown-item  text-dark" href="{{ route('class.listing') }}">All Classes</a>
+                        <a class="dropdown-item  text-dark" href="{{ route('my.class') }}">My Classes</a>
+                        <a class="dropdown-item  text-dark" href="#">Forum</a>
+                        <a class="dropdown-item  text-dark" href="#">Lectures</a>
+                        <a class="dropdown-item  text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                          document.getElementById('logout-form').submit();">
                                                             {{ __('Logout') }}
                                                         </a>
