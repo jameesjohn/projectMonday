@@ -55,6 +55,9 @@
                                                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item  text-dark" href="{{ route('new.class') }}" >Create a Class</a>
+                        <a class="dropdown-item  text-dark" href="{{ route('create.assignment') }}" >Create Assignment</a>
+                        <a class="dropdown-item  text-dark" href="{{ route('assignments') }}" >Show Assignments</a>
                         <a class="dropdown-item  text-dark" href="#">Forum</a>
                         <a class="dropdown-item  text-dark" href="#">Lectures</a>
                         <a class="dropdown-item  text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -2,34 +2,41 @@
  * Globals
  */
 
+
 /* Links */
+
 a,
 a:focus,
 a:hover {
-  color: #fff;
-}
-li {
-	list-style-type: none;
-	text-decoration: none;
+    color: #fff;
 }
 
+li {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
 /* Custom default button */
+
 .btn-secondary {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
-  padding: .8em 4em;
+    color: #333;
+    text-shadow: none;
+    /* Prevent inheritance from `body` */
+    background-color: #fff;
+    border: .05rem solid #fff;
+    padding: .8em 4em;
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: #fff;
-  font-weight: 600;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: transparent;
-  border: .05rem solid #fff;
-  padding: .8em 4em;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: none;
+    /* Prevent inheritance from `body` */
+    background-color: transparent;
+    border: .05rem solid #fff;
+    padding: .8em 4em;
 }
 
 
@@ -39,57 +46,59 @@ li {
 
 html,
 body {
-  height: 100%;
-  background-color: #333;
-  background-image: url("/img/home-bg.jpg");
+    height: 100%;
+    background-color: #333;
+    background-image: url("/img/home-bg.jpg");
 }
 
 body {
-  display: -ms-flexbox;
-  display: flex;
-  color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    display: -ms-flexbox;
+    display: flex;
+    color: #fff;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
 
 /*
  * nav
  */
- .fa-bars {
-   color:white;
- } 
+
+.fa-bars {
+    color: white;
+}
 
 .navbar-brand {
-	font-weight: 800;
-	font-size: 2rem;
+    font-weight: 800;
+    font-size: 2rem;
 }
 
 .nav-link {
-  font-weight: 800;
-  font-size: 1.2em;
-  color: rgba(255, 255, 255, .5);
-  background-color: transparent;
-  border-bottom: .25rem solid transparent;
+    font-weight: 800;
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, .5);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
+    border-bottom-color: rgba(255, 255, 255, .25);
 }
+
 
 /*
  * Cover
  */
 
 .cover .cover-heading {
-  font-weight: 700;
-  font-size: 3rem;
+    font-weight: 700;
+    font-size: 3rem;
 }
 
 .cover .lead {
-  font-weight: 400;
-  font-size: 1.5rem;
+    font-weight: 400;
+    font-size: 1.5rem;
 }
 
 
@@ -98,35 +107,39 @@ body {
  */
 
 .fa-heart {
-	color: #DC143C;
+    color: #DC143C;
 }
 
 
 /*===========================
 class page
 =============================*/
-.background-gradient{
-  background: linear-gradient(rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.2)); 
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0
+
+.background-gradient {
+    background: linear-gradient(rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.2));
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0
 }
 
-.dropdown-width{
-  min-width: 20rem;
-  background: transparent;
-  color: #fff;
-}
-.h1{
-  font-size: 3rem;
+.dropdown-width {
+    min-width: 20rem;
+    background: transparent;
+    color: #fff;
 }
 
-  /* Small devices (landscape phones, 576px and up)  */
-@media (min-width: 576px) { 
-.btn{
-  /* width: 100%; */
+.h1 {
+    font-size: 3rem;
 }
+
+
+/* Small devices (landscape phones, 576px and up)  */
+
+@media (min-width: 576px) {
+    .btn {
+        /* width: 100%; */
+    }
 }

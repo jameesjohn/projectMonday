@@ -15,7 +15,7 @@ class LecturerController extends Controller
 	public function __construct(ClassRepository $class) {
     	$this->middleware('auth');
     	$this->middleware('lecturer');
-    	
+
     	$this->class = $class;
     }
 
@@ -36,11 +36,11 @@ class LecturerController extends Controller
 
 	    return ['error' => 'Cannot create a class'];
     }
-    
+
     public function classes()
     {
     	$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');
-    	
+
     	return view('listing-lecturer', $data);
     }
 
