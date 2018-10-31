@@ -27,7 +27,7 @@
                 <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
               </button>
             <a class="navbar-brand" href="/">
-                <h3 class="masthead-brand"> Portal</h3>
+                <h3 class="masthead-brand"> EEE Learning Portal</h3>
             </a>
 
 
@@ -46,22 +46,7 @@
                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> @endif
                 </li>
                 @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" v-pre>
-                                            Classes <span class="caret"></span>
-                                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('class.listing') }}">All Classes</a>
-                        <a class="dropdown-item" href="{{ route('my.class') }}">My Classes</a>
-
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" v-pre>
@@ -69,6 +54,8 @@
                                                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('class.listing') }}">All Classes</a>
+                        <a class="dropdown-item" href="{{ route('my.class') }}">My Classes</a>
                         <a class="dropdown-item" href="#">Forum</a>
                         <a class="dropdown-item" href="#">Lectures</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
