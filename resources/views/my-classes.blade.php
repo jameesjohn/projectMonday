@@ -1,7 +1,7 @@
 @extends('layouts.listing')
 @section('listing.content')
 
-<<<<<<< HEAD
+{{--  
     <title>Project Monday</title>
 
     <link href="{{ asset('css/app.css')}}" rel="stylesheet">
@@ -38,11 +38,10 @@
                 <a class="nav-link" href="#">Lectures</a>
             </li>
         </div>
-    </nav>
+    </nav>  --}}
 
     <div class="container my-auto">
-=======
->>>>>>> fb55540ea88f8cdf42b5fcc0f2f09a576c0f39d1
+
         <div class="row">
             @if(session('message'))
                 <div class="col-md-12">

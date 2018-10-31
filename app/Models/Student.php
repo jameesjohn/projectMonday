@@ -13,7 +13,7 @@ class Student extends Model
 
     public function classes()
     {
-    	return $this->hasMany('App\Models\StudentClass');
+    	return $this->hasOne('App\Models\StudentClass');
     }
 
     public function assignments()
