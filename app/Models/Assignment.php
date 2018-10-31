@@ -23,9 +23,4 @@ class Assignment extends Model
     {
     	return $this->hasMany('App\Models\AssignmentSubscription');
     }
-
-    public function setIdAttribute($id)
-    {
-    	return Uuid::uuid1();
-    }
 }

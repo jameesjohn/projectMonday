@@ -16,6 +16,7 @@ class ClassController extends Controller
 	public function __construct(ClassRepository $class, StudentClassRepository $studentClassRepository)
 	{
 		$this->middleware('auth');
+		$this->middleware('student');
 		$this->class = $class;
 		$this->studentClassRepository = $studentClassRepository;
 	}
@@ -59,7 +60,6 @@ class ClassController extends Controller
     public function myClasses()
     {
     	$data['classes'] = $this->studentClassRepository->getByAttributes(['student_id' => Auth::user()->student->id], 'AND', ['class'])->pluck('class');
-
     	return view('my-classes', $data);
     }
 }

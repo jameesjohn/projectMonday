@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\AssignmentRepository;
+use App\Repositories\ClassRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
@@ -12,11 +13,13 @@ use App\Models\Assignment;
 class AssignmentController extends Controller
 {
 	private $assignment;
+	private $class;
 
-	public function __construct(AssignmentRepository $assignment)
+	public function __construct(AssignmentRepository $assignment, ClassRepository $class)
 	{
 		$this->middleware('auth');
 		$this->assignment = $assignment;
+		$this->class = $class;
 	}
 
 	public function submitAssignment($id)
@@ -48,16 +51,18 @@ class AssignmentController extends Controller
     
     public function createAssignment()
 	{
-		$classes = StudentClass::all();
-		return view('create-assignment', compact('classes'));
+		$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');;
+		return view('create-assignment', $data);
 	}
 
 	public function storeAssignment(Request $request)
 	{
-		$assignment = new Assignment;
-		$assignment->content = $request->input('content');
-		$assignment->class_id = $request->input('class_id');
-		$assignment->save();
+		$data = $request->except(['_token']);
+		$assignment = $this->assignment->fillAndSave($data);
+
+		if ($assignment) {
+			return back()->with('message', 'Assignment Created');
+		}
 
 		return back();
 	}

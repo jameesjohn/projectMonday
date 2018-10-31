@@ -1,9 +1,7 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.listing')
+@section('listing.content')
 
+<<<<<<< HEAD
     <title>Project Monday</title>
 
     <link href="{{ asset('css/app.css')}}" rel="stylesheet">
@@ -43,6 +41,8 @@
     </nav>
 
     <div class="container my-auto">
+=======
+>>>>>>> fb55540ea88f8cdf42b5fcc0f2f09a576c0f39d1
         <div class="row">
             @if(session('message'))
                 <div class="col-md-12">
@@ -54,24 +54,25 @@
         </div>
         <br/>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h1>
-                    Classes I've Joined
-                </h1>
-            </div>
-        </div>
+
         <div role="main" class="cover">
             @if ($classes->count() > 0)
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>
+                            Classes I've Joined
+                        </h1>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover table-dark">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">S/N</th>
                             <th scope="col">Class Name</th>
                             <th scope="col">Lecturer</th>
                             <th scope="col">Schedule</th>
-                            {{--<th scope="col">Action</th>--}}
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -80,7 +81,9 @@
                                 <th scope="row">{{ $key+1 }}</th>
                                 <td><a href="{{ route('show.class', $class->id) }}">{{ $class->name }}</a></td>
                                 <td>{{ $class->lecturer->user->name }}</td>
-                                <td> {{ $class->schedule }}</td>
+                                <td> {{ $class->created_at->diffForHumans() }}</td>
+                                <td><a href="{{ route('show.class', $class->id) }}" class="btn btn-success">ENTER CLASS NOW</a></td>
+
                                 {{--<td>--}}
                                     {{--<form method="post" action="{{ route('join.class') }}">--}}
                                         {{--@csrf--}}
@@ -101,15 +104,4 @@
             @endif
 
         </div>
-    </div>
-
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-            <p>Designed with <i class="fas fa-heart"></i> by bitsofcodes</p>
-        </div>
-    </footer>
-</div>
-
-<script src="{{ asset('js/app.js')}}"></script>
-</body>
-</html>
+@endsection
