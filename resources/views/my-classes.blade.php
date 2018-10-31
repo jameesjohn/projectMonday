@@ -17,7 +17,6 @@
 
 <body class="text-center">
 
-
 <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
     <nav class="navbar navbar-expand-lg">

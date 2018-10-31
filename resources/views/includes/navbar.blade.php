@@ -18,5 +18,10 @@
 <li class="nav-item">
 <a class="nav-link" href="/lectures">Lectures</a>
 </li>
+@if(Auth::guest)
+<li class="nav-item">
+<a class="nav-link" href="/register">Register</a>
+</li>
+@endif
 </div>
 </nav>
