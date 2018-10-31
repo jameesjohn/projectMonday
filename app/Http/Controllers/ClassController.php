@@ -7,6 +7,8 @@ use App\Repositories\ClassRepository;
 use App\Repositories\StudentClassRepository;
 use Illuminate\Http\Request;
 use Auth;
+use Exception;
+
 
 class ClassController extends Controller
 {
@@ -24,19 +26,22 @@ class ClassController extends Controller
 	public function list()
     {
     	$data['classes'] = $this->class->getByAttributes(['level_id' => Auth::user()->student->level_id]);
-
     	return view('listing', $data);
     }
 
     public function joinClass(Request $request)
     {
-    	$data = $request->except(['_token']);
-    	$data['student_id'] = Auth::user()->student->id;
-    	$result = $this->studentClassRepository->fillAndSave($data);
-
+		try {
+			$data = $request->except(['_token']);
+			$data['student_id'] = Auth::user()->student->id;
+			$result = $this->studentClassRepository->fillAndSave($data);
+		} catch (Exception $exception) {
+			return back()->with("message", "You can't join more than one class, are you mad?");
+		}
     	if ($result) {
     		return back()->with('message', 'Class Joined Successfully.');
-	    }
+		}
+		
     }
 
 

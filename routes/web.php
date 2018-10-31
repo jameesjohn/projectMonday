@@ -36,3 +36,9 @@ Route::get('/lecturer/newclass', 'LecturerController@newClass')->name('new.class
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+use App\Models\SchoolClass;
+
+Route::get('classy', function(){
+    return SchoolClass::all();
+});

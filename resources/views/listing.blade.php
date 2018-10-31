@@ -18,6 +18,7 @@
                 <div class="col-md-12">
                     <h3>
                         Classes Available to your Level
+                        @include('includes.error')
                     </h3>
                 </div>
             </div>
@@ -52,7 +53,7 @@
             </table>
         </div>
         @else
-        <h1> No classes available to join for your level yet. Check back.</h1>
+        <h1>No classes available to join for your level yet. Check back.</h1>
         @endif {{--
         <p class="lead">--}} {{--
             <a href="#" class="btn btn-lg btn-secondary mt-5">Join a Class</a>--}} {{--
