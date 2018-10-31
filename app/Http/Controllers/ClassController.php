@@ -59,7 +59,6 @@ class ClassController extends Controller
     public function myClasses()
     {
     	$data['classes'] = $this->studentClassRepository->getByAttributes(['student_id' => Auth::user()->student->id], 'AND', ['class'])->pluck('class');
-
     	return view('my-classes', $data);
     }
 }

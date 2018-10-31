@@ -35,22 +35,6 @@
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 </ul>
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" v-pre>
-                            Classes <span class="caret"></span>
-                     </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('class.listing') }}">All Classes</a>
-                        <a class="dropdown-item" href="{{ route('my.class') }}">My Classes</a>
-
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
 
 
                 @guest
@@ -62,6 +46,22 @@
                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> @endif
                 </li>
                 @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" v-pre>
+                                            Classes <span class="caret"></span>
+                                     </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('class.listing') }}">All Classes</a>
+                        <a class="dropdown-item" href="{{ route('my.class') }}">My Classes</a>
+
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" v-pre>
@@ -91,7 +91,7 @@
 
         <footer class="mastfoot mt-auto">
             <div class="inner">
-                <p>Designed with <i class="fas fa-heart"></i> by bitsofcodes</p>
+                <p>Designed with <i class="fas fa-heart"></i> by Elisha</p>
             </div>
         </footer>
     </div>

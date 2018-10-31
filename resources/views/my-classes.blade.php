@@ -29,7 +29,7 @@
                             <th scope="col">Class Name</th>
                             <th scope="col">Lecturer</th>
                             <th scope="col">Schedule</th>
-                            {{--<th scope="col">Action</th>--}}
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -38,7 +38,9 @@
                                 <th scope="row">{{ $key+1 }}</th>
                                 <td><a href="{{ route('show.class', $class->id) }}">{{ $class->name }}</a></td>
                                 <td>{{ $class->lecturer->user->name }}</td>
-                                <td> {{ $class->schedule }}</td>
+                                <td> {{ $class->created_at->diffForHumans() }}</td>
+                                <td><a href="{{ route('show.class', $class->id) }}" class="btn btn-success">ENTER CLASS NOW</a></td>
+
                                 {{--<td>--}}
                                     {{--<form method="post" action="{{ route('join.class') }}">--}}
                                         {{--@csrf--}}
