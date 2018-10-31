@@ -36,7 +36,7 @@ class ClassController extends Controller
 			$data['student_id'] = Auth::user()->student->id;
 			$result = $this->studentClassRepository->fillAndSave($data);
 		} catch (Exception $exception) {
-			return back()->with("message", "You can't join more than one class, are you mad?");
+			return back()->with("message", "You can't join more than one class");
 		}
     	if ($result) {
     		return back()->with('message', 'Class Joined Successfully.');
