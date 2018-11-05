@@ -41,11 +41,15 @@
                         <td>{{ $class->lecturer->user->name }}</td>
                         <td> {{ $class->created_at->diffForHumans() }}</td>
                         <td>
-                            <form method="post" action="{{ route('join.class') }}">
-                                @csrf
-                                <input type="hidden" value="{{ $class->id }}" name="class_id">
-                                <button class="btn btn-danger">Join</button>
-                            </form>
+                            @if(!in_array(Auth::user()->student->id, $class->students->pluck('student_id')->toArray()))
+                                <form method="post" action="{{ route('join.class') }}">
+                                    @csrf
+                                    <input type="hidden" value="{{ $class->id }}" name="class_id">
+                                    <button class="btn btn-danger">Join</button>
+                                </form>
+                            @else
+                                <button class="btn btn-success disabled">Joined</button>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
