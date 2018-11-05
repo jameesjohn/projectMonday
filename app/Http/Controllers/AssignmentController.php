@@ -27,8 +27,8 @@ class AssignmentController extends Controller
 		$assignment = $this->assignment->find($id, ['class']);
 		$data['class'] = $assignment->class;
 		$data['assignment'] = $assignment;
-
-		return view('submit-assignment', $data);
+        // return $data;
+		return view('submit-assignment', $data)->with("message", "Assignment submitted successfully!");
 	}
 
 	public function saveAssignment($id, Request $request)
@@ -39,16 +39,16 @@ class AssignmentController extends Controller
 		$data['assignment_id'] = $id;
 		$data['submitted'] = 1;
 		$data['student_id'] = Auth::user()->student->id;
-		$data['id'] = Uuid::uuid1();
+        $data['id'] = Uuid::uuid1();
 		$submitted = $assignment->subscribers()->create($data);
 
 		if ($submitted) {
-			return redirect()->route('show.class', $assignment->class->id);
+			return redirect()->route('show.class', $assignment->class->id)->with("message", "Assignment Submitted Successfully");
 		}
 
 		return ['error' => 'Unable to Submit Assignment'];
 	}
-    
+
     public function createAssignment()
 	{
 		$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');;
@@ -57,7 +57,7 @@ class AssignmentController extends Controller
 
 	public function storeAssignment(Request $request)
 	{
-		$data = $request->except(['_token']);
+        $data = $request->except(['_token']);
 		$assignment = $this->assignment->fillAndSave($data);
 
 		if ($assignment) {

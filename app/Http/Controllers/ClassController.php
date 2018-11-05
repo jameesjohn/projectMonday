@@ -41,7 +41,7 @@ class ClassController extends Controller
     	if ($result) {
     		return back()->with('message', 'Class Joined Successfully.');
 		}
-		
+
     }
 
 

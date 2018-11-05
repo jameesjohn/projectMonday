@@ -8,7 +8,7 @@ use Ramsey\Uuid\Uuid;
 class Assignment extends Model
 {
 	public $fillable = [
-		'id', 'class_id', 'content'
+		'id', 'class_id', 'title', 'description'
 	];
 
 	public $incrementing = false;

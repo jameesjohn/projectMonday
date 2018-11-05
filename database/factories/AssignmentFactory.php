@@ -16,7 +16,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Models\Assignment::class, function (Faker $faker) {
 	return [
 		'id' => $faker->uuid,
-		'class_id' => '',
-		'content' => $faker->text,
+        'class_id' => '',
+		'title' => $faker->word(6),
+		'description' => $faker->text,
 	];
 });
