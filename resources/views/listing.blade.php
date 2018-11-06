@@ -51,6 +51,7 @@
                     @endforeach
                 </tbody>
             </table>
+        <a href="{{route('my.class')}}" class="btn btn-secondary my-4">See Joined Classes</a>
         </div>
         @else
         <h1>No classes available to join for your level yet. Check back.</h1>

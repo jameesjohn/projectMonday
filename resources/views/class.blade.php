@@ -1,11 +1,20 @@
 @extends('layouts.listing')
 @section('listing.content')
+<div class="row">
+    @if(session('message'))
+    <div class="col-md-12">
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    </div>
+    @endif
+</div>
 <main class="my-auto">
     <h1 class="h1">
-        Welcome to <span>{{ $class->name }}</span> Class
+        Welcome to <span>{{ $class->name }}'s</span> Class
     </h1>
     <h5>
-        You have joined the class and would be notified of classes and assignments
+    You have joined {{$class->name}}'s class and would be notified of classes and assignments
     </h5>
     <div class="container">
         <div class="row pt-5">
@@ -19,7 +28,7 @@
                     <ol class="dropdown-menu dropdown-width">
                         @forelse($pendingAssignments as $assignment)
                         <li class=pb-3> {{ strtoupper($assignment->class->name) }}
-                            <a class="btn btn-primary float-right" href="{{ route('assignment.submit', $assignment->id) }}">Submit</a>
+                            <a class="btn btn-primary float-right" href="{{ route('assignment.submit', $assignment->id) }}">Open</a>
                         </li>
                         <div class="dropdown-divider"></div>
                         @empty

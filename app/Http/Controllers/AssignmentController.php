@@ -28,7 +28,7 @@ class AssignmentController extends Controller
 		$data['class'] = $assignment->class;
 		$data['assignment'] = $assignment;
         // return $data;
-		return view('submit-assignment', $data)->with("message", "Assignment submitted successfully!");
+		return view('submit-assignment', $data);
 	}
 
 	public function saveAssignment($id, Request $request)

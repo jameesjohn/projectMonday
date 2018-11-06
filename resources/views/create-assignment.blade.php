@@ -1,5 +1,14 @@
 @extends('layouts.listingL')
 @section('listing.content')
+<div class="row">
+    @if(session('message'))
+    <div class="col-md-12">
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    </div>
+    @endif
+</div>
         <main class="my-auto">
             <h1 class="h1">
                 Create Assignment for your students
