@@ -49,4 +49,7 @@ class LecturerController extends Controller
     	$data['levels'] = Level::all();
     	return view('new-class', $data);
     }
+    public function viewAssignments(){
+        // please fill this
+    }
 }
