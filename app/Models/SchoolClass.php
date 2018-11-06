@@ -11,11 +11,12 @@ class SchoolClass extends Model
     public $fillable = [
     	'id', 'lecturer_id', 'level_id', 'name'
     ];
+
     public $incrementing = false;
 
     public function students()
     {
-    	return $this->hasMany('App\Models\Student');
+    	return $this->hasMany('App\Models\StudentClass', 'class_id');
     }
 
     public function lecturer()

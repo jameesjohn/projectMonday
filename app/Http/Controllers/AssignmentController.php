@@ -35,7 +35,7 @@ class AssignmentController extends Controller
 	{
 		$assignment = $this->assignment->find($id);
 
-		$data['filename'] = $request->assignmentFile->storeAs('assignments', Auth::user()->id . '.pdf');
+		$data['filename'] = $request->assignmentFile->storeAs('public/assignments', Auth::user()->id . '.pdf');
 		$data['assignment_id'] = $id;
 		$data['submitted'] = 1;
 		$data['student_id'] = Auth::user()->student->id;

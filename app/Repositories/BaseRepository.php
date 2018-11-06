@@ -180,7 +180,7 @@ abstract class BaseRepository implements ModelRepository
 	 */
 	public function fillAndSave($attributes)
 	{
-		$attributes['id'] = str_random(20);
+		$attributes['id'] = $this->generateUuid();
 		$this->model->fill($attributes);
 		$this->model->save();
 		return $this->model;
