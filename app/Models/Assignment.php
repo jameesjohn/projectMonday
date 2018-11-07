@@ -23,4 +23,8 @@ class Assignment extends Model
     {
     	return $this->hasMany('App\Models\AssignmentSubscription');
     }
+    public function level()
+    {
+    	return $this->belongsTo('App\Models\Level');
+    }
 }

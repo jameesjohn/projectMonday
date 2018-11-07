@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\AssignmentRepository;
+use App\Repositories\AssignmentSumissionRepository;
 use App\Repositories\ClassRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,23 +16,21 @@ class AssignmentController extends Controller
 	private $assignment;
 	private $class;
 
-	public function __construct(AssignmentRepository $assignment, ClassRepository $class)
+	public function __construct(AssignmentRepository $assignment, ClassRepository $class, AssignmentSumissionRepository $subassignment)
 	{
 		$this->middleware('auth');
 		$this->assignment = $assignment;
+		$this->subassignment = $subassignment;
 		$this->class = $class;
 	}
 
-	public function submitAssignment($id)
+    public function createAssignment()
 	{
-		$assignment = $this->assignment->find($id, ['class']);
-		$data['class'] = $assignment->class;
-		$data['assignment'] = $assignment;
-        // return $data;
-		return view('submit-assignment', $data);
-	}
+		$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');;
+		return view('create-assignment', $data);
+    }
 
-	public function saveAssignment($id, Request $request)
+    public function saveAssignment($id, Request $request)
 	{
 		$assignment = $this->assignment->find($id);
 
@@ -49,13 +48,16 @@ class AssignmentController extends Controller
 		return ['error' => 'Unable to Submit Assignment'];
 	}
 
-    public function createAssignment()
+    public function submitAssignment($id)
 	{
-		$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');;
-		return view('create-assignment', $data);
-	}
+		$assignment = $this->assignment->find($id, ['class']);
+		$data['class'] = $assignment->class;
+		$data['assignment'] = $assignment;
+        // return $data;
+		return view('submit-assignment', $data);
+    }
 
-	public function storeAssignment(Request $request)
+    public function storeAssignment(Request $request)
 	{
         $data = $request->except(['_token']);
 		$assignment = $this->assignment->fillAndSave($data);
@@ -65,5 +67,21 @@ class AssignmentController extends Controller
 		}
 
 		return back();
-	}
+    }
+
+    public function viewAssignmentsPerClass($id)
+    {
+        $data['assignments'] = $this->assignment->getByAttributes(['class_id' => $id], 'AND');
+        // return $data;
+        return view('assignmentListing',$data);
+    }
+
+    public function viewAssignmentSubmissions($id)
+    {
+         $data['subassignments'] = $this->subassignment->getByAttributes(['assignment_id' => $id], 'AND');
+        // return $data;
+        return view('submittedAssignmentList', $data);
+    }
+
+
 }

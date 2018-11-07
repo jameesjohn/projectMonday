@@ -28,4 +28,8 @@ class SchoolClass extends Model
     {
     	return $this->hasMany('App\Models\Assignment', 'class_id');
     }
+    public function level()
+    {
+    	return $this->belongsTo('App\Models\Level', 'level_id');
+    }
 }

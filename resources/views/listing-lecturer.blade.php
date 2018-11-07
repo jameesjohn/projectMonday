@@ -32,9 +32,9 @@
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Class Name</th>
+						<th scope="col">Level</th>
 						<th scope="col">Lecturer</th>
-						<th scope="col">Schedule</th>
-						{{--<th scope="col">Action</th>--}}
+						<th scope="col">Action</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -42,15 +42,10 @@
 					<tr>
 						<th scope="row">{{ $key+1 }}</th>
 						<td>{{ $class->name }}</td>
+						<td> {{ $class->level->level }}</td>
 						<td>{{ $class->lecturer->user->name }}</td>
-						<td> {{ $class->schedule }}</td>
-						{{--<td>--}}
-							{{--<form method="post" action="{{ route('join.class') }}">--}}
-								{{--@csrf--}}
-								{{--<input type="hidden" value="{{ $class->id }}" name="class_id">--}}
-								{{--<button class="btn btn-danger">Join</button>--}}
-								{{--</form>--}}
-							{{--</td>--}}
+						<td > <a href="/lecturer/assignments/{{$class->id}}" class="btn btn-success">See Assignments</a> </td>
+
 					</tr>
 					@endforeach
 					</tbody>
@@ -59,7 +54,7 @@
 
 				<p class="lead">
 					<a href="{{ route('new.class') }}" class="btn btn-lg btn-secondary mt-5">Create a Class</a>
-					<a href="{{ route('lecturer.home') }}" class="btn btn-lg btn-secondary mt-5">Lecturer Home</a>
+					{{-- <a href="{{ route('lecturer.home') }}" class="btn btn-lg btn-secondary mt-5">Lecturer Home</a> --}}
 				</p>
 			@else
 			<h1> You've not created a class yet.</h1>

@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
                 </ul>
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{route('lecturer.home')}}">Home <span class="sr-only">(current)</span></a>
 
 
                 @guest
@@ -57,7 +57,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item  text-dark" href="{{ route('new.class') }}" >Create a Class</a>
                         <a class="dropdown-item  text-dark" href="{{ route('create.assignment') }}" >Create Assignment</a>
-                        <a class="dropdown-item  text-dark" href="{{ route('assignments') }}" >Show Assignments</a>
+                        {{-- <a class="dropdown-item  text-dark" href="{{ route('assignments') }}" >Show Assignments</a> --}}
                         <a class="dropdown-item  text-dark" href="#">Forum</a>
                         <a class="dropdown-item  text-dark" href="#">Lectures</a>
                         <a class="dropdown-item  text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -29,8 +29,10 @@ Route::get('/lecturer/home', 'LecturerController@index')->name('lecturer.home');
 // create assignment -- Lecturer
 Route::get('/assignment', 'AssignmentController@createAssignment')->name('create.assignment')->middleware(['auth', 'lecturer']);
 Route::post('/assignment', 'AssignmentController@storeAssignment')->name('store.assignment')->middleware(['auth', 'lecturer']);
+// View Assingments per class
+Route::get('/lecturer/assignments/{id}', 'AssignmentController@viewAssignmentsPerClass');
+Route::get('/assignments/submitted/{id}', 'AssignmentController@viewAssignmentSubmissions')->name('see.submission');
 
-Route::get('/lecturer/assignments', 'LecturerController@viewAssignments')->name('assignments');
 Route::get('/lecturer/classes', 'LecturerController@classes')->name('lecturer.classes');
 Route::get('/lecturer/newclass', 'LecturerController@newClass')->name('new.class');
 Route::post('/lecturer/createClass', 'LecturerController@createClass')->name('create.class');
@@ -40,8 +42,3 @@ Route::post('/lecturer/createClass', 'LecturerController@createClass')->name('cr
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-use App\Models\SchoolClass;
-
-Route::get('classy', function(){
-    return SchoolClass::all();
-});

@@ -55,9 +55,9 @@
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                 </div>
                             </form>
-                            </div>
-                            </div>
                         </div>
+                    </div>
+                </div>
 
             <div class="col-md-7  mx-auto mt-5">
                 <button type="button" class="btn btn-primary text-center form-control btn-lg" data-toggle="modal" data-target="#exampleModalLong">

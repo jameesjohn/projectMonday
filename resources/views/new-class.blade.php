@@ -19,7 +19,6 @@
                 <button class="btn btn-lg btn-primary mt-5 form-control">Create Class</button>
             </form>
 
-            <a href="{{ route('lecturer.home') }}" class="btn btn-lg btn-success mt-1 form-control">Lecturer Home</a>
         </div>
     </div>
 </div>

@@ -13,7 +13,7 @@ class AssignmentSubscription extends Model
 	public $incrementing = false;
 	public function student()
     {
-    	return $this->hasOne('App\Models\Student');
+    	return $this->hasOne('App\Models\StudentClass', 'student_id');
     }
 
     public function lecturer()
