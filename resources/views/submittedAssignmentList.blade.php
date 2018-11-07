@@ -39,7 +39,7 @@
                     <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $subassignment->assignment->title }}</td>
-                        <td>{{ dd($subassignment->student) }}</td>
+                        <td>{{ dd($subassignment->student->user) }}</td>
                         {{-- <td class="text-left">{{ $assignment->description }}</td> --}}
                         {{-- <td>{{$assignment->class->name}}</td>
                         <td>{{$assignment->class->level->level}}</td> --}}
