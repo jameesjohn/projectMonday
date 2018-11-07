@@ -23,11 +23,15 @@ class Student extends Model
 
     public function level()
     {
-    	return $this->hasOne('App\Models\Level');
+    	return $this->belongsTo('App\Models\Level');
     }
 
 	public function user()
 	{
 		return $this->belongsTo('App\User');
+	}
+	public function levels()
+	{
+		return $this->belongsTo('App\Models\Level');
 	}
 }

@@ -28,10 +28,9 @@
                     <tr>
                         <th scope="col">S/N</th>
                         <th scope="col"> Assignment Title</th>
-                        {{-- <th scope="col "> Description</th> --}}
                         <th scope="col">Students Name</th>
                         <th scope="col">Level</th>
-                        <th scope="col">Submissions</th>
+                        <th scope="col">Time Submitted</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,17 +39,16 @@
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $subassignment->assignment->title }}</td>
                         <td>{{ $subassignment->student->user->name }}</td>
-                        {{-- <td class="text-left">{{ $assignment->description }}</td> --}}
-                        {{-- <td>{{$assignment->class->name}}</td>
-                        <td>{{$assignment->class->level->level}}</td> --}}
-                    {{-- <td> <a href="{{route('see.submission')}}" class="btn btn-success">See Submissions</a></td> --}}
+                        <td>{{ $subassignment->student->user->student->level->level}}</td>
+                        <td>{{ $subassignment->created_at->diffForHumans()}}</td>
+
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
         @else
-        <h1>No Assignments created for this class yet. Check back.</h1>
+        <h1>No Student has submitted assignments yet. Check back.</h1>
         @endif
 
     </div>
