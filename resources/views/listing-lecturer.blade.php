@@ -30,10 +30,9 @@
 				<table class="table table-hover table-dark">
 					<thead>
 					<tr>
-						<th scope="col">#</th>
+						<th scope="col">S/N</th>
 						<th scope="col">Class Name</th>
 						<th scope="col">Level</th>
-						<th scope="col">Lecturer</th>
 						<th scope="col">Action</th>
 					</tr>
 					</thead>
@@ -43,24 +42,20 @@
 						<th scope="row">{{ $key+1 }}</th>
 						<td>{{ $class->name }}</td>
 						<td> {{ $class->level->level }}</td>
-						<td>{{ $class->lecturer->user->name }}</td>
-						<td > <a href="/lecturer/assignments/{{$class->id}}" class="btn btn-success">See Assignments</a> </td>
+                        <td >
+                            <a href="/lecturer/assignments/{{$class->id}}" class="btn btn-success">See Assignments </a>
+                        </td>
 
 					</tr>
 					@endforeach
 					</tbody>
 				</table>
 			</div>
-
-				<p class="lead">
-					<a href="{{ route('new.class') }}" class="btn btn-lg btn-secondary mt-5">Create a Class</a>
-					{{-- <a href="{{ route('lecturer.home') }}" class="btn btn-lg btn-secondary mt-5">Lecturer Home</a> --}}
-				</p>
 			@else
-			<h1> You've not created a class yet.</h1>
-			<p class="lead">
-				<a href="{{ route('new.class') }}" class="btn btn-lg btn-secondary mt-5">Create a class</a>
-			</p>
+                <h1> You've not created a class yet.</h1>
+                <p class="lead">
+                    <a href="{{ route('new.class') }}" class="btn btn-lg btn-secondary mt-5">Create a class</a>
+                </p>
 			@endif
 
 		</div>

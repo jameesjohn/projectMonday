@@ -27,7 +27,7 @@
                                     </a>
                     <ol class="dropdown-menu dropdown-width">
                         @forelse($pendingAssignments as $assignment)
-                        <li class=pb-3> {{ strtoupper($assignment->class->name) }}
+                        <li class=pb-3> {{ strtoupper($assignment->title) }}
                             <a class="btn btn-primary float-right" href="{{ route('assignment.submit', $assignment->id) }}">Open</a>
                         </li>
                         <div class="dropdown-divider"></div>
@@ -47,7 +47,7 @@
                                         </a>
                     <ol class="dropdown-menu dropdown-width">
                         @forelse($submittedAssignments as $sub)
-                        <li class=p-2> {{ $sub->assignment->class->name }}</li>
+                        <li class=p-2> {{ $sub->assignment->title }}</li>
                         <div class="dropdown-divider"></div>
                         @empty
                         <li class=p-2> No Submitted assignments</li>

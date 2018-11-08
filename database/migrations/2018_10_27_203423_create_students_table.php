@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->string('id', 36);
             $table->string('user_id', 36);
             $table->string('level_id', 36);
+            $table->string('reg_number')->unique();
             $table->timestamps();
 
             $table->primary('id');

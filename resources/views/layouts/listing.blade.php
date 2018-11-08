@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
                 </ul>
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/listing">Home <span class="sr-only">(current)</span></a>
 
 
                 @guest
@@ -58,7 +58,6 @@
                         <a class="dropdown-item  text-dark" href="{{ route('class.listing') }}">All Classes</a>
                         <a class="dropdown-item  text-dark" href="{{ route('my.class') }}">My Classes</a>
                         <a class="dropdown-item  text-dark" href="#">Forum</a>
-                        <a class="dropdown-item  text-dark" href="#">Lectures</a>
                         <a class="dropdown-item  text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                          document.getElementById('logout-form').submit();">
                                                             {{ __('Logout') }}

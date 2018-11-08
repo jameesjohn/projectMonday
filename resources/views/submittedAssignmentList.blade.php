@@ -1,5 +1,5 @@
 
-    @extends('layouts.listing')
+    @extends('layouts.listingL')
    @section('listing.content')
         <div class="row">
             @if(session('message'))
@@ -15,11 +15,11 @@
     <div role="main" class="cover">
         @if ($subassignments->count() > 0)
             <div class="row">
-                <div class="col-md-12">
-                    <h3>
-                     Students That Submitted Assignment
+                <div class="col-md-12 my-4">
+                    <h1>
+                    Students That Submitted <br> {{$subassignments[0]->assignment->title}} Assignment.
                         @include('includes.error')
-                    </h3>
+                    </h1>
                 </div>
             </div>
         <div class="table-responsive">
@@ -27,9 +27,8 @@
                 <thead>
                     <tr>
                         <th scope="col">S/N</th>
-                        <th scope="col"> Assignment Title</th>
                         <th scope="col">Students Name</th>
-                        <th scope="col">Level</th>
+                        <th scope="col">Reg. Number</th>
                         <th scope="col">Time Submitted</th>
                     </tr>
                 </thead>
@@ -37,10 +36,12 @@
                     @foreach($subassignments as $key => $subassignment)
                     <tr>
                         <th scope="row">{{ $key+1 }}</th>
-                        <td>{{ $subassignment->assignment->title }}</td>
                         <td>{{ $subassignment->student->user->name }}</td>
-                        <td>{{ $subassignment->student->user->student->level->level}}</td>
+                        <td>{{ $subassignment->student->user->student->reg_number}}</td>
                         <td>{{ $subassignment->created_at->diffForHumans()}}</td>
+                        <td>
+                            <a href="{{asset('storage/assignments/'. $subassignment->assignment->class->lecturer->user->name. '/'.$subassignment->assignment->class->name . '\'s class/'. $subassignment->assignment->title. '/' . $subassignment->assignment->title . '-' . $subassignment->student->user->name . '.pdf' )}}" class="btn btn-success">Download Here</a>
+                        </td>
 
                     </tr>
                     @endforeach

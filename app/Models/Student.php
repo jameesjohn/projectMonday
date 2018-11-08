@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
 	public $fillable = [
-		'id', 'user_id', 'level_id'
+		'id', 'user_id', 'level_id', 'reg_number'
 	];
 	public $incrementing = false;
 

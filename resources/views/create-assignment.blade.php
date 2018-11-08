@@ -40,13 +40,21 @@
                                                                         <strong>{{ $errors->first('description') }}</strong>
                                                                     </span> @endif
                                     </div>
+
                                     <div class="form-label-group">
                                         <select name="class_id" class="form-control" required>
                                                     <option value="">Class ...</option>
                                                 @foreach($classes as $class)
-                                                    <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                            @endforeach
+                                                    <option value="{{ $class->id }}">{{ $class->name . '-'. $class->level->level. ' Level'}}</option>
+                                                @endforeach
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                      <input id="submitted" type="datetime-local" class="form-control{{ $errors->has('submitted') ? ' is-invalid' : '' }}"
+                                        name="submitted_on" value="{{ old('submitted') }}" required > @if ($errors->has('submitted'))
+                                    <span class="invalid-feedback" role="alert">
+                                                                                                            <strong>{{ $errors->first('submitted') }}</strong>
+                                                                                                        </span> @endif
                                     </div>
 
                                 </div>

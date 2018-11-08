@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon as Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class DatabaseSeeder extends Seeder
 	    	$lecturer = factory(App\Models\Lecturer::class)->make(['user_id' => $user->id]);
 	    	$classes = factory(App\Models\SchoolClass::class, 3)->create(['lecturer_id' => $lecturer->id, 'level_id' => $this->getRandomLevelId()]);
 			$classes->each(function ($class) {
-				factory(App\Models\Assignment::class, 3)->create(['class_id' => $class->id]);
+				factory(App\Models\Assignment::class, 3)->create(['class_id' => $class->id, 'submitted_on' => Carbon::now()]);
 			});
 	    	$user->lecturer()->save($lecturer);
 	    });

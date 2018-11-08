@@ -14,7 +14,7 @@ use App\Models\Assignment;
 class AssignmentController extends Controller
 {
 	private $assignment;
-	private $class;
+    private $class;
 
 	public function __construct(AssignmentRepository $assignment, ClassRepository $class, AssignmentSumissionRepository $subassignment)
 	{
@@ -32,9 +32,10 @@ class AssignmentController extends Controller
 
     public function saveAssignment($id, Request $request)
 	{
+        //  return Auth::user()->student->reg_number;
 		$assignment = $this->assignment->find($id);
 
-		$data['filename'] = $request->assignmentFile->storeAs('public/assignments', Auth::user()->id . '.pdf');
+		$data['filename'] = $request->assignmentFile->storeAs('public/assignments', $assignment->class->lecturer->user->name.'/'.$assignment->class->name.'\'s class/'.$assignment->title.'/'.$assignment->title. '-' . Auth::user()->name. '.pdf');
 		$data['assignment_id'] = $id;
 		$data['submitted'] = 1;
 		$data['student_id'] = Auth::user()->student->id;
@@ -60,6 +61,8 @@ class AssignmentController extends Controller
     public function storeAssignment(Request $request)
 	{
         $data = $request->except(['_token']);
+        // $data['submitted_on'] = \Carbon\Carbon::now()->addDay('3');
+        // return $data;
 		$assignment = $this->assignment->fillAndSave($data);
 
 		if ($assignment) {
@@ -78,7 +81,7 @@ class AssignmentController extends Controller
 
     public function viewAssignmentSubmissions($id)
     {
-         $data['subassignments'] = $this->subassignment->getByAttributes(['assignment_id' => $id], 'AND');
+        $data['subassignments'] = $this->subassignment->getByAttributes(['assignment_id' => $id], 'AND');
         // return $data;
         return view('submittedAssignmentList', $data);
     }
