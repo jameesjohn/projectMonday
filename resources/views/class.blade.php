@@ -16,7 +16,7 @@
     <h5>
     You have joined {{$class->name}}'s class and would be notified of classes and assignments
     </h5>
-    <div class="container">
+    {{-- <div class="container">
         <div class="row pt-5">
             <div class="col-2"></div>
             <div class="col-md-4 col-12 pt-3">
@@ -60,6 +60,41 @@
 
         </div>
         <!--/row-->
+    </div> --}}
+
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-5 class-tab ">
+      <!-- Nav pills -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">Pending Assignment</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1">Past Assignment</a>
+                    </li>                   
+                </ul>
+    
+      <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active"><br>
+                        <p>GST 111</p>
+                        <p>GST 113</p>
+                        <p>GST 314</p>
+                        <p>GST 115</p>
+                        <p>GST 151</p>
+                        <p>GST 411</p>                
+                    </div>
+                    <div id="menu1" class="container tab-pane fade"><br>
+                        <p>STY 367</p>
+                        <p>STY 137</p>
+                        <p>STY 457</p>                
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
+
 </main>
 @endsection
