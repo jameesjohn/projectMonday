@@ -2,8 +2,9 @@
 @section('listing.content')
     <main class="my-auto">
         <h1 class="h1 mb-4 text-center px-4">
-        You want to submit assignment on {{$assignment->title}} for <span> {{ $class->name }}'s</span> Class
-        </h1>
+        You want to submit assignment on {{$assignment->title}} for <span> {{ $assignment->class->name }}'s</span> Class
+    </h1>
+
         <div class="table-responsive">
             <table class="table table-hover table-dark">
                 <thead>
@@ -18,11 +19,18 @@
                     <tr>
                         <td>{{ $assignment->title }}</td>
                         <td class="text-left">{{ $assignment->description }}</td>
-                        <td> {{ $class->created_at->diffForHumans() }}</td>
+                        <td> {{ $assignment->submitted_on->diffForHumans() }}</td>
                         <td>
-                        <button type="button" class="btn btn-secondary text-center btn-sm" data-toggle="modal" data-target="#exampleModalLong">
-                            Submit Assignment
-                        </button>
+                            @if ($assignment->submitted_on->gt($now) )
+                                <button type="button" class="btn btn-secondary text-center btn-sm" data-toggle="modal" data-target="#exampleModalLong">
+                                        Submit Assignment
+                                </button>
+                            @else
+                                <button type="button" class="btn btn-secondary text-center btn-sm disabled" data-toggle="modal">
+                                    Submitting not availabe
+                                </button>
+                            @endif
+
                         </td>
                     </tr>
                 </tbody>

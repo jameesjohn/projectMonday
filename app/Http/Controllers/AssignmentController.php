@@ -52,8 +52,8 @@ class AssignmentController extends Controller
     public function submitAssignment($id)
 	{
 		$assignment = $this->assignment->find($id, ['class']);
-		$data['class'] = $assignment->class;
-		$data['assignment'] = $assignment;
+        $data['assignment'] = $assignment;
+        $data['now'] = \Carbon\Carbon::now();
         // return $data;
 		return view('submit-assignment', $data);
     }
@@ -61,8 +61,6 @@ class AssignmentController extends Controller
     public function storeAssignment(Request $request)
 	{
         $data = $request->except(['_token']);
-        // $data['submitted_on'] = \Carbon\Carbon::now()->addDay('3');
-        // return $data;
 		$assignment = $this->assignment->fillAndSave($data);
 
 		if ($assignment) {

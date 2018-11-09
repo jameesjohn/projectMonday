@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
+use \Carbon\Carbon as Carbon;
 
 class Assignment extends Model
 {
@@ -29,7 +30,7 @@ class Assignment extends Model
     {
     	return $this->belongsTo('App\Models\Level');
     }
-    public function setPostOnAttribute($value)
+    public function setSubmittedOnAttribute($value)
     {
         $this->attributes['submitted_on'] = Carbon::parse($value);
     }
