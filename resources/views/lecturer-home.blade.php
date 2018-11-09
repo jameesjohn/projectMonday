@@ -3,9 +3,6 @@
 @section('listing.content')
 
 
-<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-
     <div role="main" class="cover my-auto">
         @if ( Auth::user())
         <h1 class="cover-heading">Hello {{ Auth::user()->name }}</h1>

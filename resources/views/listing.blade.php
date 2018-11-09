@@ -29,7 +29,7 @@
                         <th scope="col">S/N</th>
                         <th scope="col">Class Name</th>
                         <th scope="col">Lecturer</th>
-                        <th scope="col">Schedule</th>
+                        <th scope="col">Created</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>

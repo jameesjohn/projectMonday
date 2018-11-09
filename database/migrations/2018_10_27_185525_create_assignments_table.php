@@ -18,6 +18,7 @@ class CreateAssignmentsTable extends Migration
             $table->string('class_id', 36);
             $table->text('title');
             $table->text('description');
+            $table->timestamp('submitted_on')->nullable();
             $table->timestamps();
 
             $table->primary('id');

@@ -60,6 +60,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'reg_number' => ['required', 'string', 'min:16','max:16', 'unique:users'],
             // 'role' => ['required'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
@@ -85,7 +86,8 @@ class RegisterController extends Controller
         if ($user) {
         	$newData = [
         		'user_id' => $user->id,
-		        'level_id' => $data['level_id']
+                'level_id' => $data['level_id'],
+                'reg_number' => $data['reg_number']
 	        ];
 
         	$this->student->fillAndSave($newData);

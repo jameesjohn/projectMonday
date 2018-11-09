@@ -14,7 +14,7 @@ use App\Models\Assignment;
 class AssignmentController extends Controller
 {
 	private $assignment;
-	private $class;
+    private $class;
 
 	public function __construct(AssignmentRepository $assignment, ClassRepository $class, AssignmentSumissionRepository $subassignment)
 	{
@@ -32,9 +32,10 @@ class AssignmentController extends Controller
 
     public function saveAssignment($id, Request $request)
 	{
+        //  return Auth::user()->student->reg_number;
 		$assignment = $this->assignment->find($id);
 
-		$data['filename'] = $request->assignmentFile->storeAs('public/assignments', Auth::user()->id . '.pdf');
+		$data['filename'] = $request->assignmentFile->storeAs('public/assignments', $assignment->class->lecturer->user->name.'/'.$assignment->class->name.'\'s class/'.$assignment->title.'/'.$assignment->title. '-' . Auth::user()->name. '.pdf');
 		$data['assignment_id'] = $id;
 		$data['submitted'] = 1;
 		$data['student_id'] = Auth::user()->student->id;
@@ -51,8 +52,8 @@ class AssignmentController extends Controller
     public function submitAssignment($id)
 	{
 		$assignment = $this->assignment->find($id, ['class']);
-		$data['class'] = $assignment->class;
-		$data['assignment'] = $assignment;
+        $data['assignment'] = $assignment;
+        $data['now'] = \Carbon\Carbon::now();
         // return $data;
 		return view('submit-assignment', $data);
     }
@@ -78,10 +79,20 @@ class AssignmentController extends Controller
 
     public function viewAssignmentSubmissions($id)
     {
-         $data['subassignments'] = $this->subassignment->getByAttributes(['assignment_id' => $id], 'AND');
+        $data['subassignments'] = $this->subassignment->getByAttributes(['assignment_id' => $id], 'AND');
         // return $data;
         return view('submittedAssignmentList', $data);
     }
 
+     public function deleteAssignment($id){
+        $assignment = Assignment::findOrFail($id);
+        $submitted = $assignment->subscribers;
+        // $assignments = $this->assignment->getByAttributes(['class_id' => $id], 'AND');
+        foreach($submitted as $submit){
+            $submit->delete();
+        }
+        $assignment->delete();
+        return redirect('/lecturer/classes');
+    }
 
 }

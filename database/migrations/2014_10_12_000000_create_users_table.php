@@ -18,10 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->enum('role', ['student', 'lecturer', 'hod']);
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('level_id')->index();
             $table->string('password');
             $table->rememberToken();
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
 
             $table->primary('id');

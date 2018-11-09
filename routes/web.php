@@ -32,11 +32,11 @@ Route::post('/assignment', 'AssignmentController@storeAssignment')->name('store.
 // View Assingments per class
 Route::get('/lecturer/assignments/{id}', 'AssignmentController@viewAssignmentsPerClass');
 Route::get('/assignments/submitted/{id}', 'AssignmentController@viewAssignmentSubmissions')->name('see.submission');
-
+Route::get('/assignments/{id}/delete', 'AssignmentController@deleteAssignment');
 Route::get('/lecturer/classes', 'LecturerController@classes')->name('lecturer.classes');
 Route::get('/lecturer/newclass', 'LecturerController@newClass')->name('new.class');
 Route::post('/lecturer/createClass', 'LecturerController@createClass')->name('create.class');
-
+Route::get('/lecturer/class/{id}/delete', 'LecturerController@deleteClass');
 
 
 Auth::routes();

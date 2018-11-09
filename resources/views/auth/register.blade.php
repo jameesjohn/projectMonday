@@ -18,11 +18,14 @@
                <form class="form-signin px-auto" method="post" action="/register">
                 @csrf
                  <div class="form-group">
-                   <input type="text" name="name" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                   <input type="text" name="name" id="inputUserame" class="form-control" placeholder="Full Name" required autofocus>
                  </div>
 
                  <div class="form-group">
                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                 </div>
+                 <div class="form-group">
+                   <input type="text" name="reg_number" id="inputRegNumber" class="form-control" placeholder="Reg Number" required>
                  </div>
 
                    <div class="form-group">

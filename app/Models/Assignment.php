@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
+use \Carbon\Carbon as Carbon;
 
 class Assignment extends Model
 {
 	public $fillable = [
-		'id', 'class_id', 'title', 'description'
+		'id', 'class_id', 'title', 'description', 'submitted_on'
 	];
+
+    protected $dates = ['submitted_on'];
 
 	public $incrementing = false;
 
@@ -26,5 +29,9 @@ class Assignment extends Model
     public function level()
     {
     	return $this->belongsTo('App\Models\Level');
+    }
+    public function setSubmittedOnAttribute($value)
+    {
+        $this->attributes['submitted_on'] = Carbon::parse($value);
     }
 }
