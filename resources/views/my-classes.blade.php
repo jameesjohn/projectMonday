@@ -38,6 +38,7 @@
                         <tbody>
                         @foreach($classes as $key => $class)
                             <tr>
+                                {{-- {{dd($class->id)}} --}}
                                 <th scope="row">{{ $key+1 }}</th>
                                 <td><a href="{{ route('show.class', $class->id) }}">{{ $class->name }}</a></td>
                                 <td>{{ $class->lecturer->user->name }}</td>

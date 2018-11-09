@@ -55,4 +55,19 @@ class LecturerController extends Controller
     	return view('new-class', $data);
     }
 
+    public function deleteClass($id){
+        $class = SchoolClass::findOrFail($id);
+        $assignments = $class->assignments;
+        $studentsClasses = $class->students;
+        // $assignments = $this->assignment->getByAttributes(['class_id' => $id], 'AND');
+        foreach($assignments as $assignment){
+            $assignment->delete();
+        }
+        foreach($studentsClasses as $studentsClass){
+            $studentsClass->delete();
+        }
+        $class->delete();
+        return redirect('/lecturer/classes');
+    }
+
 }

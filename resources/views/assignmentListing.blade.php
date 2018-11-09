@@ -29,7 +29,7 @@
                         <th scope="col">S/N</th>
                         <th scope="col"> Title</th>
                         <th scope="col">Submitted On</th>
-                        <th scope="col">Submissions</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +44,7 @@
                                 <span class="badge badge-danger">{{$assignment->subscribers->count()}}</span>
                                 @endif
                             </a>
+                            <a href="/assignments/{{$assignment->id}}/delete" class="btn btn-danger">Delete Assignment </a>
                         </td>
                     </tr>
                     @endforeach
@@ -51,7 +52,8 @@
             </table>
         </div>
         @else
-        <h1>No Assignments created for this class yet. Check back.</h1>
+        <h1>No Assignments created for this class yet.</h1>
+        <a href="{{ route('create.assignment') }}" class="btn btn-lg btn-secondary mt-5">Create Assignment</a>
         @endif
 
     </div>

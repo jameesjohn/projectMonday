@@ -84,5 +84,15 @@ class AssignmentController extends Controller
         return view('submittedAssignmentList', $data);
     }
 
+     public function deleteAssignment($id){
+        $assignment = Assignment::findOrFail($id);
+        $submitted = $assignment->subscribers;
+        // $assignments = $this->assignment->getByAttributes(['class_id' => $id], 'AND');
+        foreach($submitted as $submit){
+            $submit->delete();
+        }
+        $assignment->delete();
+        return redirect('/lecturer/classes');
+    }
 
 }
