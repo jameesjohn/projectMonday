@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+// use Models\Student;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +15,7 @@ class StudentClass extends Model
 
 	public function student()
     {
-    	return $this->hasOne('App\Model\Student');
+    	return $this->belongsTo('App\Models\Student');
     }
 
     public function class()

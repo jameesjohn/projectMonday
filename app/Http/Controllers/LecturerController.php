@@ -71,7 +71,8 @@ class LecturerController extends Controller
     }
 
     public function seeStudentsInClass($id){
-        $data['studentInClass'] = StudentClass::where('class_id', $id)->get();
-        return $data;
+        $data['studentsInClass'] = StudentClass::where('class_id', $id)->get();
+        // return $data;
+        return view('lecturer.classStudents', $data);
     }
 }

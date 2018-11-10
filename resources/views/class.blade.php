@@ -72,9 +72,9 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#menu1">Past Assignment</a>
-                    </li>                   
+                    </li>
                 </ul>
-    
+
       <!-- Tab panes -->
                 <div class="tab-content">
                     <div id="home" class="container tab-pane active"><br>
@@ -83,18 +83,18 @@
                         <p>GST 314</p>
                         <p>GST 115</p>
                         <p>GST 151</p>
-                        <p>GST 411</p>                
+                        <p>GST 411</p>
                     </div>
                     <div id="menu1" class="container tab-pane fade"><br>
                         <p>STY 367</p>
                         <p>STY 137</p>
-                        <p>STY 457</p>                
+                        <p>STY 457</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
 
 </main>
 @endsection
