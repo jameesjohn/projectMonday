@@ -51,9 +51,8 @@ class ClassController extends Controller
 		        ['submitted', '=', 1],
 		    ];
 
-	    $data['submittedAssignments'] = AssignmentSubscription::where($conditions)->whereIn('assignment_id', ($class->assignments()->pluck('id')))->get();
-	    $data['pendingAssignments'] = $class->assignments()->whereNotIn('id', ($data['submittedAssignments'])->pluck('assignment_id'))->get();
-
+	    $data['submittedAssignments'] = AssignmentSubscription::where($conditions)->whereIn('assignment_id', ($class->assignments()->pluck('id')))->paginate(4);
+	    $data['pendingAssignments'] = $class->assignments()->whereNotIn('id', ($data['submittedAssignments'])->pluck('assignment_id'))->paginate(4);
 	    $data['class'] = $class;
 
 	    return view('class', $data);
