@@ -6,6 +6,7 @@ use App\Models\Level;
 use App\Models\AssignmentSubscription;
 use App\Models\Assignment;
 use App\Models\SchoolClass;
+use App\Models\StudentClass;
 use App\Repositories\ClassRepository;
 use App\Repositories\AssignmentRepository;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class LecturerController extends Controller
 
     public function index()
     {
-    	return view('lecturer-home');
+    	return view('lecturer.lecturer-home');
     }
 
     public function createClass(Request $request)
@@ -45,8 +46,7 @@ class LecturerController extends Controller
     public function classes()
     {
         $data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');
-        // return $data;
-    	return view('listing-lecturer', $data);
+    	return view('lecturer.listing-lecturer', $data);
     }
 
     public function newClass()
@@ -70,4 +70,8 @@ class LecturerController extends Controller
         return redirect('/lecturer/classes');
     }
 
+    public function seeStudentsInClass($id){
+        $data['studentInClass'] = StudentClass::where('class_id', $id)->get();
+        return $data;
+    }
 }

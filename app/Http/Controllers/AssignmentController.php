@@ -27,8 +27,21 @@ class AssignmentController extends Controller
     public function createAssignment()
 	{
 		$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');;
-		return view('create-assignment', $data);
+		return view('lecturer.create-assignment', $data);
     }
+
+    public function storeAssignment(Request $request)
+	{
+        $data = $request->except(['_token']);
+		$assignment = $this->assignment->fillAndSave($data);
+
+		if ($assignment) {
+			return back()->with('message', 'Assignment Created');
+		}
+
+		return back();
+    }
+
 
     public function saveAssignment($id, Request $request)
 	{
@@ -42,7 +55,8 @@ class AssignmentController extends Controller
         $data['id'] = Uuid::uuid1();
 		$submitted = $assignment->subscribers()->create($data);
 
-		if ($submitted) {
+        if ($submitted)
+        {
 			return redirect()->route('show.class', $assignment->class->id)->with("message", "Assignment Submitted Successfully");
 		}
 
@@ -58,41 +72,33 @@ class AssignmentController extends Controller
 		return view('submit-assignment', $data);
     }
 
-    public function storeAssignment(Request $request)
-	{
-        $data = $request->except(['_token']);
-		$assignment = $this->assignment->fillAndSave($data);
-
-		if ($assignment) {
-			return back()->with('message', 'Assignment Created');
-		}
-
-		return back();
-    }
 
     public function viewAssignmentsPerClass($id)
     {
         $data['assignments'] = $this->assignment->getByAttributes(['class_id' => $id], 'AND');
+        $data['studentsInClass'] = StudentClass::where('class_id', $id)->get()->count();
+        $data['studentInClass'] = StudentClass::where('class_id', $id)->first();
         // return $data;
-        return view('assignmentListing',$data);
+        return view('lecturer.assignmentListing',$data);
     }
 
     public function viewAssignmentSubmissions($id)
     {
         $data['subassignments'] = $this->subassignment->getByAttributes(['assignment_id' => $id], 'AND');
-        // return $data;
-        return view('submittedAssignmentList', $data);
+        return view('lecturer.submittedAssignmentList', $data);
     }
 
-     public function deleteAssignment($id){
+    public function deleteAssignment($id)
+    {
         $assignment = Assignment::findOrFail($id);
         $submitted = $assignment->subscribers;
         // $assignments = $this->assignment->getByAttributes(['class_id' => $id], 'AND');
-        foreach($submitted as $submit){
+        foreach($submitted as $submit)
+        {
             $submit->delete();
         }
         $assignment->delete();
-        return redirect('/lecturer/classes');
+        return back()->with('message', 'Assignment Deleted');
     }
 
 }
