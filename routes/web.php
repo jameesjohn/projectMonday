@@ -22,6 +22,7 @@ Route::post('/class/join', 'ClassController@joinClass')->name('join.class');
 // submit assignments route
 Route::get('/assignment/submit/{id}', 'AssignmentController@submitAssignment')->name('assignment.submit');
 Route::post('/assignment/submit/{id}', 'AssignmentController@saveAssignment')->name('submit.assignment.final');
+Route::get('/information', 'InformationController@index')->name('information');
 
 // Lecturers Routes
 Route::get('/lecturer/home', 'LecturerController@index')->name('lecturer.home');

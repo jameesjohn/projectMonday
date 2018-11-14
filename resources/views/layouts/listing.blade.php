@@ -19,7 +19,7 @@
 
 <body class="text-center">
 
-
+<div class="background-gradient">
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
         <nav class="navbar navbar-expand-lg">
@@ -57,7 +57,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item  text-dark" href="{{ route('class.listing') }}">All Classes</a>
                         <a class="dropdown-item  text-dark" href="{{ route('my.class') }}">My Classes</a>
-                        <a class="dropdown-item  text-dark" href="#">Forum</a>
+                    <a class="dropdown-item  text-dark" href="{{route('information')}}">Information Board</a>
                         <a class="dropdown-item  text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                          document.getElementById('logout-form').submit();">
                                                             {{ __('Logout') }}
@@ -73,7 +73,7 @@
         </nav>
 
         <div class="container my-auto">
-        @yield('listing.content')
+            @yield('listing.content')
         </div>
 
         <footer class="mastfoot mt-auto">
@@ -82,7 +82,9 @@
             </div>
         </footer>
     </div>
+</div>
 
+    <script src="{{ asset('js/jquery.js')}}"></script>
     <script src="{{ asset('js/app.js')}}"></script>
 </body>
 

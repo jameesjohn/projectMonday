@@ -52,7 +52,7 @@ class LecturerController extends Controller
     public function newClass()
     {
     	$data['levels'] = Level::all();
-    	return view('new-class', $data);
+    	return view('lecturer.new-class', $data);
     }
 
     public function deleteClass($id){

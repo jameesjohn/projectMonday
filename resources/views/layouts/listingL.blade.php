@@ -18,68 +18,70 @@
 </head>
 
 <body class="text-center">
+    <div class="background-gradient">
+        <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <h3 class="masthead-brand"> EEE Learning Portal</h3>
+                </a>
 
-    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-        <nav class="navbar navbar-expand-lg">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-            </button>
-            <a class="navbar-brand" href="/">
-                <h3 class="masthead-brand"> EEE Learning Portal</h3>
-            </a>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
-                    <a class="nav-link" href="{{route('lecturer.home')}}">Home <span class="sr-only">(current)</span></a>
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            @if (Route::has('register'))
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            @endif
-                        </li>
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item  text-dark" href="{{ route('new.class') }}" >Create a Class</a>
-                                <a class="dropdown-item  text-dark" href="{{ route('create.assignment') }}" >Create Assignment</a>
-                                <a class="dropdown-item  text-dark" href="{{ route('lecturer.classes') }}" >Show Classes</a>
-                                <a class="dropdown-item  text-dark" href="#">Forum</a>
-                                <a class="dropdown-item  text-dark" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
+                        <a class="nav-link" href="{{route('lecturer.home')}}">Home <span class="sr-only">(current)</span></a>
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                @if (Route::has('register'))
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                @endif
+                            </li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
-            </div>
-        </nav>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item  text-dark" href="{{ route('new.class') }}" >Create a Class</a>
+                                    <a class="dropdown-item  text-dark" href="{{ route('create.assignment') }}" >Create Assignment</a>
+                                    <a class="dropdown-item  text-dark" href="{{ route('lecturer.classes') }}" >Show Classes</a>
+                                    <a class="dropdown-item  text-dark" href="#">Forum</a>
+                                    <a class="dropdown-item  text-dark" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-        <div class="container my-auto">
-            @yield('listing.content')
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container my-auto">
+                @yield('listing.content')
+            </div>
+
+            <footer class="mastfoot mt-auto">
+                <div class="inner">
+                    <p>Designed with <i class="fas fa-heart"></i> by Elisha</p>
+                </div>
+            </footer>
         </div>
-
-        <footer class="mastfoot mt-auto">
-            <div class="inner">
-                <p>Designed with <i class="fas fa-heart"></i> by Elisha</p>
-            </div>
-        </footer>
     </div>
 
+    <script src="{{ asset('js/jquery.js')}}"></script>
     <script src="{{ asset('js/app.js')}}"></script>
+    <script src="{{ asset('js/script.js')}}"></script>
 </body>
 
 </html>

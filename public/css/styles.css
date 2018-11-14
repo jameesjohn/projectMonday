@@ -48,7 +48,8 @@ html,
 body {
     height: 100%;
     background-color: #333;
-    background-image: url("/img/home-bg.jpg");
+    background-image: url("/img/class.jpg");
+    background-size: cover;
 }
 
 body {
@@ -125,24 +126,12 @@ class page
     bottom: 0
 }
 
-.dropdown-width {
-    min-width: 20rem;
-    background: transparent;
-    color: #fff;
-}
-
 .h1 {
     font-size: 3rem;
 }
 
 
 /* Small devices (landscape phones, 576px and up)  */
-
-@media (min-width: 576px) {
-    .btn {
-        /* width: 100%; */
-    }
-}
 
 .class-tab{
     margin:auto;

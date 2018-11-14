@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Mail;
 
 use Ramsey\Uuid\Uuid;
 
@@ -91,7 +92,7 @@ class RegisterController extends Controller
 	        ];
 
         	$this->student->fillAndSave($newData);
-
+            Mail::to($data['email'])->send(new \App\Mail\register(request()));
         	return $user;
         }
     }

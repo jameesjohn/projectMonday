@@ -26,7 +26,7 @@ class ClassController extends Controller
 	public function list()
     {
     	$data['classes'] = $this->class->getByAttributes(['level_id' => Auth::user()->student->level_id]);
-    	return view('listing', $data);
+    	return view('students.listing', $data);
     }
 
     public function joinClass(Request $request)
@@ -55,13 +55,13 @@ class ClassController extends Controller
 	    $data['pendingAssignments'] = $class->assignments()->whereNotIn('id', ($data['submittedAssignments'])->pluck('assignment_id'))->paginate(4);
 	    $data['class'] = $class;
 
-	    return view('class', $data);
+	    return view('students.class', $data);
     }
 
     public function myClasses()
     {
         $data['classes'] = $this->studentClassRepository->getByAttributes(['student_id' => Auth::user()->student->id], 'AND', ['class'])->pluck('class');
         // return $data;
-    	return view('my-classes', $data);
+    	return view('students.my-classes', $data);
     }
 }

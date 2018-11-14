@@ -69,7 +69,7 @@ class AssignmentController extends Controller
         $data['assignment'] = $assignment;
         $data['now'] = \Carbon\Carbon::now();
         // return $data;
-		return view('submit-assignment', $data);
+		return view('students.submit-assignment', $data);
     }
 
 

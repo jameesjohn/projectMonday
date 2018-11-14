@@ -3,7 +3,7 @@
    @section('listing.content')
         <div class="row">
             @if(session('message'))
-                <div class="col-md-12">
+                <div class="col-md-6 mx-auto">
                     <div class="alert alert-success">
                         {{ session('message') }}
                     </div>
@@ -56,9 +56,11 @@
                 </tbody>
             </table>
         <a href="{{route('my.class')}}" class="btn btn-secondary my-4">See Joined Classes</a>
+        <a href="{{route('information')}}" class="btn btn-secondary my-4">Information Board</a>
         </div>
         @else
-        <h1>No classes available to join for your level yet. Check back.</h1>
+        <h1>No classes available for your level yet. <br>Check back Soon.</h1>
+        <a href="{{route('information')}}" class="btn btn-secondary my-4">Information Board</a>
         @endif {{--
         <p class="lead">--}} {{--
             <a href="#" class="btn btn-lg btn-secondary mt-5">Join a Class</a>--}} {{--
