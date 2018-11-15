@@ -10,6 +10,7 @@
         </p>
         <p class="lead">
             <a href="{{ route('lecturer.classes') }}" class="btn btn-lg btn-secondary mt-3">Show Classes</a>
+            <a href="{{ route('information') }}" class="btn btn-lg btn-secondary mt-3">Information Board</a>
         </p>
     </div>
 

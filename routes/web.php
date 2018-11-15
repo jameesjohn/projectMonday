@@ -22,7 +22,10 @@ Route::post('/class/join', 'ClassController@joinClass')->name('join.class');
 // submit assignments route
 Route::get('/assignment/submit/{id}', 'AssignmentController@submitAssignment')->name('assignment.submit');
 Route::post('/assignment/submit/{id}', 'AssignmentController@saveAssignment')->name('submit.assignment.final');
-Route::get('/information', 'InformationController@index')->name('information');
+Route::get('/information', 'NotificationController@index')->name('information');
+Route::get('lecturer/information/create', 'NotificationController@create')->name('information.create');
+Route::post('lecturer/information/create', 'NotificationController@store');
+Route::get('/information/{id}', 'NotificationController@show');
 
 // Lecturers Routes
 Route::get('/lecturer/home', 'LecturerController@index')->name('lecturer.home');
@@ -30,7 +33,7 @@ Route::get('/lecturer/home', 'LecturerController@index')->name('lecturer.home');
 Route::get('/lecturer/classes', 'LecturerController@classes')->name('lecturer.classes');
 Route::get('/lecturer/newclass', 'LecturerController@newClass')->name('new.class');
 Route::post('/lecturer/createClass', 'LecturerController@createClass')->name('create.class');
-Route::get('/lecturer/class/{id}/delete', 'LecturerController@deleteClass');
+Route::post('/lecturer/class/{id}/delete', 'LecturerController@deleteClass')->name('delete');
 Route::get('/lecturer/class/{id}/students', 'LecturerController@seeStudentsInClass')->name('see.class.students');
 
 

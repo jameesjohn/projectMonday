@@ -92,7 +92,7 @@ class RegisterController extends Controller
 	        ];
 
         	$this->student->fillAndSave($newData);
-            Mail::to($data['email'])->send(new \App\Mail\register(request()));
+            // Mail::to($data['email'])->send(new \App\Mail\register(request()));
         	return $user;
         }
     }

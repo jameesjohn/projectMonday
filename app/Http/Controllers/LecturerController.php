@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ClassRepository;
+use App\Repositories\AssignmentRepository;
 use App\Models\Level;
 use App\Models\AssignmentSubscription;
 use App\Models\Assignment;
 use App\Models\SchoolClass;
 use App\Models\StudentClass;
-use App\Repositories\ClassRepository;
-use App\Repositories\AssignmentRepository;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -67,7 +67,7 @@ class LecturerController extends Controller
             $studentsClass->delete();
         }
         $class->delete();
-        return redirect('/lecturer/classes');
+        return redirect('/lecturer/classes')->with('message', 'Class deleted successfully');
     }
 
     public function seeStudentsInClass($id){

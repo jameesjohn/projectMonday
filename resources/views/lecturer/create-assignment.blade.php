@@ -31,14 +31,14 @@
                                 <input id="title" type="text" placeholder="{{ __('Title') }}" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title"
                                     value="{{ old('title') }}" required autofocus> @if ($errors->has('title'))
                                 <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('title') }}</strong>
-                                                            </span> @endif
+                                    <strong>{{ $errors->first('title') }}</strong>
+                                </span> @endif
                             </div>
                             <div class="form-group">
-                                <textarea id="description" rows="5" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" name="description" >Description {{ old('title') }} </textarea>@if ($errors->has('description'))
+                                <textarea id="description" rows="5" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" name="description" placeholder="Description">{{ old('title') }} </textarea>@if ($errors->has('description'))
                                 <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('description') }}</strong>
-                                                            </span> @endif
+                                    <strong>{{ $errors->first('description') }}</strong>
+                                </span> @endif
                             </div>
 
                             <div class="form-label-group">
