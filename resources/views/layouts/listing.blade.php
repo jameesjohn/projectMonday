@@ -23,7 +23,7 @@
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
         <nav class="navbar navbar-expand-lg">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
               </button>
@@ -31,12 +31,11 @@
                 <h3 class="masthead-brand"> EEE Learning Portal</h3>
             </a>
 
-
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
-                </ul>
-                <a class="nav-link" href="/listing">Home <span class="sr-only">(current)</span></a>
-
+                <li class="nav-item active">              
+                    <a class="nav-link" href="/listing">Home <span class="sr-only">(current)</span></a>
+                </li>
 
                 @guest
                 <li class="nav-item">
@@ -51,8 +50,8 @@
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" v-pre>
-                                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                                    </a>
+                         {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item  text-dark" href="{{ route('class.listing') }}">All Classes</a>
@@ -69,8 +68,11 @@
                     </div>
                 </li>
                 @endguest
+                </ul>
             </div>
         </nav>
+
+        
 
         <div class="container my-auto">
             @yield('listing.content')
