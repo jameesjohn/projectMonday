@@ -53,6 +53,9 @@
         @endif
 
     </div>
+
+    @if (Auth::user()->role == 'lecturer')
+
     {{-- Delete Modal --}}
     <div class="modal fade text-dark" id="informationModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
@@ -107,6 +110,7 @@
             </div>
         </div>
     </div>
+    @endif
 
 
    @endsection

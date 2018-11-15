@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content='{{csrf_field()}}'>
     <title>Project Monday</title>
 
     <link href="{{ asset('css/app.css')}}" rel="stylesheet">
@@ -86,6 +86,9 @@
 
     <script src="{{ asset('js/jquery.js')}}"></script>
     <script src="{{ asset('js/app.js')}}"></script>
+    <script>
+        $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
+    </script>
 </body>
 
 </html>
