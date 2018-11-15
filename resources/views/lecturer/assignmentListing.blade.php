@@ -45,7 +45,7 @@
                                             <span class="badge badge-danger">{{$assignment->subscribers->count()}}</span>
                                             @endif
                                         </a>
-                                        <a href="/assignments/{{$assignment->id}}/delete" class="btn btn-danger">Delete Assignment </a>
+                                        <a data-toggle="modal" href="" data-id="{{$assignment->id}}" class="btn btn-danger assDel" data-target="#deleteModalLong">Delete Assignment </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -84,6 +84,28 @@
                 @endif
             @endif
 
+        </div>
+        {{-- Delete Modal --}}
+        <div class="modal fade text-dark" id="deleteModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLongTitle">Delete Class</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <h3 class="px-4 py-3">Are you sure you want to delete this assignment?</h3>
+                    <form enctype="multipart/form-data" method="POST" id="deleteAss">
+                        @csrf
+                        <div class="py-3">
+                            <button type="submit" class="btn btn-success ">Delete</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
    @endsection
 

@@ -27,7 +27,9 @@ class LecturerController extends Controller
 
     public function index()
     {
-    	return view('lecturer.lecturer-home');
+        $data['levels'] = Level::all();
+		$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');
+    	return view('lecturer.lecturer-home', $data);
     }
 
     public function createClass(Request $request)

@@ -26,7 +26,7 @@ class AssignmentController extends Controller
 
     public function createAssignment()
 	{
-		$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');;
+		$data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');
 		return view('lecturer.create-assignment', $data);
     }
 

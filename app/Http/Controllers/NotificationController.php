@@ -25,6 +25,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
+        $data['levels'] = Level::all();
         if(Auth::user()->role != 'lecturer'){
             $conditionsGeneral = [
                     ['type', 'general'],
@@ -37,8 +38,15 @@ class NotificationController extends Controller
             $data['generalInformations'] = Notification::where($conditionsGeneral)->paginate(5);
             return view('students.information',$data);
         }else{
-
-            $data['levelInformations'] = Notification::where($conditions)->paginate(5);
+             $conditionsGeneral = [
+                    ['type', 'general'],
+                ];
+            $conditionsLevel = [
+                    ['lecturer_id', Auth::user()->lecturer->id],
+                    ['type', 'level'],
+                ];
+            $data['levelInformations'] = Notification::where($conditionsLevel)->paginate(5);
+            $data['generalInformations'] = Notification::where($conditionsGeneral)->paginate(5);
             return view('students.information',$data);
         }
         return view('students.information');
