@@ -17,7 +17,7 @@
 
 </head>
 
-<body class="text-center">
+<body >
 
 <div class="background-gradient">
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -32,7 +32,7 @@
             </a>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
                 <li class="nav-item active">              
                     <a class="nav-link" href="/listing">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -58,10 +58,10 @@
                         <a class="dropdown-item  text-dark" href="{{ route('my.class') }}">My Classes</a>
                     <a class="dropdown-item  text-dark" href="{{route('information')}}">Information Board</a>
                         <a class="dropdown-item  text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                         document.getElementById('logout-form').submit();">
-                                                            {{ __('Logout') }}
-                                                        </a>
-
+                                   document.getElementById('logout-form').submit();">
+                                       {{ __('Logout') }}
+                           </a>
+                           
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
@@ -70,15 +70,15 @@
                 @endguest
                 </ul>
             </div>
-        </nav>
 
+        </nav>
         
 
-        <div class="container my-auto">
+        <div class="container my-auto text-center">
             @yield('listing.content')
         </div>
 
-        <footer class="mastfoot mt-auto">
+        <footer class="mastfoot mt-auto text-center">
             <div class="inner">
                 <p>Designed with <i class="fas fa-heart"></i> by Elisha</p>
             </div>
