@@ -49,7 +49,6 @@ class NotificationController extends Controller
             $data['generalInformations'] = Notification::where($conditionsGeneral)->paginate(5);
             return view('students.information',$data);
         }
-        return view('students.information');
     }
 
     /**
@@ -99,9 +98,12 @@ class NotificationController extends Controller
      * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function edit(Notification $notification)
+    public function edit($notification)
     {
-        //
+        $data['levels'] = Level::all();
+        $data['notification'] = Notification::findOrFail($notification);
+        // return $data;
+        return view('lecturer.editNotification',$data);
     }
 
     /**
@@ -111,8 +113,38 @@ class NotificationController extends Controller
      * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Notification $notification)
+    public function update(Request $request, $notification)
     {
+         $data['levels'] = Level::all();
+        if(Auth::user()->role != 'lecturer'){
+            $conditionsGeneral = [
+                    ['type', 'general'],
+                ];
+            $conditionsLevel = [
+                    ['level_id', Auth::user()->level_id],
+                    ['type', 'level'],
+                ];
+            $data['levelInformations'] = Notification::where($conditionsLevel)->paginate(5);
+            $data['generalInformations'] = Notification::where($conditionsGeneral)->paginate(5);
+            return view('students.information',$data);
+        }else{
+             $conditionsGeneral = [
+                    ['type', 'general'],
+                ];
+            $conditionsLevel = [
+                    ['lecturer_id', Auth::user()->lecturer->id],
+                    ['type', 'level'],
+                ];
+            $data['levelInformations'] = Notification::where($conditionsLevel)->orderBy('created_at', 'desc')->paginate(5);
+            $data['generalInformations'] = Notification::where($conditionsGeneral)->paginate(5);
+            }
+        $dataObj = $request->except(['_token', '_method']);
+        $notification = Notification::findOrFail($notification);
+        // return $notification;
+        if($notification->update($dataObj)){
+            return redirect()->route('information',$data)->with("message", "Announcement Edited Successfully");
+        }
+        return redirect()->route('information', $data)->with("message", "Announcement Not Edited Successfully");
     }
 
     /**

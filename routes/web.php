@@ -25,6 +25,8 @@ Route::post('/assignment/submit/{id}', 'AssignmentController@saveAssignment')->n
 Route::get('/information', 'NotificationController@index')->name('information');
 Route::get('lecturer/information/create', 'NotificationController@create')->name('information.create');
 Route::post('lecturer/information/create', 'NotificationController@store');
+Route::get('lecturer/information/{id}/edit', 'NotificationController@edit')->name('edit.notification');
+Route::put('lecturer/information/{id}/edit', 'NotificationController@update');
 Route::post('lecturer/information/{id}/delete', 'NotificationController@destroy');
 Route::get('/information/{id}', 'NotificationController@show');
 

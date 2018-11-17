@@ -34,7 +34,7 @@
                                 <td scope="row">{{ $class->name }}</td>
                                 <td scope="row"> {{ $class->level->level }}</td>
                                 <td scope="row">
-                                    <a href="{{route('show.assignment',$class->id)}}" class="btn btn-success">Enter Class</a>
+                                    <a href="{{route('show.assignment',$class->id)}}" class="btn btn-success mb-2 mb-md-0">Enter Class</a>
                                 <a data-toggle="modal" data-target="#exampleModalLong" data-id="{{$class->id}}" class="btn btn-danger del" >Delete Class </a>
                                 </td>
                             </tr>

@@ -9,10 +9,22 @@
         </div>
         @endif
     </div>
-    <main class="my-auto">
-        <h1 class="h1">
-            Create Assignment for your students
-        </h1>
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-5">
+            <div role="main" class="cover ">
+                <h1 class="h1">
+                    Create Assignment for your students
+                </h1>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mx-auto mt-3 mb-md-5">
+            <a href="#" class="btn btn-lg btn-secondary mt-5 form-control text-center" data-toggle="modal" data-target="#exampleModalLong">Create Assignment</a>
+        </div>
+    </div>
+
 
         <!-- Modal -->
         <div class="modal fade text-dark" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -67,10 +79,6 @@
             </div>
         </div>
 
-        <div class="col-md-7 mx-auto mt-3">
-            <a href="#" class="btn btn-lg btn-secondary mt-5" data-toggle="modal" data-target="#exampleModalLong">Create Assignment</a>
-        </div>
-    </main>
 @endsection
 
 

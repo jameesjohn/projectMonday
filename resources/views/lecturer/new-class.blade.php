@@ -2,8 +2,8 @@
 @section('listing.content')
 
 <div class="row">
-    <div class="col-md-6 mx-auto">
-        <div role="main" class="cover my-auto ">
+    <div class="col-md-6 mx-auto mt-5">
+        <div role="main" class="cover mb-md-5 ">
             <div class="card">
                 <div class="card-header text-dark">
                   <p class="lead">Create New Class</p>

@@ -66,7 +66,7 @@
         </nav>
         <div class="p-3 mx-auto">
 
-            <div class="container">
+            <div class="container mb-5">
                 @yield('listing.content')
             </div>
 

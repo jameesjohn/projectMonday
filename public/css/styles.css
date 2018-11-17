@@ -50,6 +50,7 @@ body {
     background-color: #333;
     background-image: url("/img/class.jpg");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 body {
@@ -116,12 +117,12 @@ class page
 
 .background-gradient {
     background: linear-gradient(rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.2));
-    height: 100%;
-    width: 100%;
-    top: 0;
+    /* height: 100%;
+    width: 100%; */
+    /* top: 0;
     right: 0;
     left: 0;
-    bottom: 0
+    bottom: 0 */
 }
 
 .h1 {

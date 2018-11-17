@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table table-hover table-dark">
+                    <table class="table table-hover table-dark mb-md-5 mb-0">
                         <thead>
                             <tr>
                                 <th scope="col">S/N</th>
@@ -40,10 +40,8 @@
                                     <td>{{ $assignment->title }}</td>
                                     <td>{{ $assignment->submitted_on->diffForHumans() }}</td>
                                     <td>
-                                        <a href="{{route('see.submission',$assignment->id)}}" class="btn btn-success">See Submissions
-                                            @if ($assignment->subscribers->count() > 0)
+                                        <a href="{{route('see.submission',$assignment->id)}}" class="btn btn-success mb-2 mb-md-0">See Submissions
                                             <span class="badge badge-danger">{{$assignment->subscribers->count()}}</span>
-                                            @endif
                                         </a>
                                         <a href="{{route('edit.assignment', $assignment->id)}}" class="btn btn-warning">Edit </a>
                                         <a data-toggle="modal" href="" data-id="{{$assignment->id}}" class="btn btn-danger assDel" data-target="#deleteModalLong">Delete </a>
@@ -63,6 +61,7 @@
                                         @else
                                             <a href="#" class="btn btn-dark form-control">
                                                 No Student in Class
+
                                             </a>
                                         @endif
                                     </td>
@@ -77,18 +76,20 @@
                     </div>
                 </div>
             @else
-                <h1 class="h1">No Assignments created for this class yet.</h1>
-                <a href="{{ route('create.assignment') }}" class="btn btn-lg btn-secondary mt-5">Create Assignment</a>
-                @if($studentsInClass > 0)
-                    <a href="{{route('see.class.students', $studentInClass->class_id)}}" class="btn btn-lg btn-secondary mt-5">
-                        See Students in Class
-                        <span class="badge badge-primary">{{$studentsInClass}}</span>
-                    </a>
-                @else
-                    <a href="#" class="btn btn-secondary btn-lg disabled mt-5">
-                        No Student in Class
-                    </a>
-                @endif
+                <div class=" mt-5 mb-md-5 mb-0">
+                    <h1 class="h1 pt-5">No Assignments created for this class yet.</h1>
+                    <a href="{{ route('create.assignment') }}" class="btn btn-lg btn-secondary my-5">Create Assignment</a>
+                    @if($studentsInClass > 0)
+                        <a href="{{route('see.class.students', $studentInClass->class_id)}}" class="btn btn-lg btn-secondary my-5">
+                            See Students in Class
+                            <span class="badge badge-primary">{{$studentsInClass}}</span>
+                        </a>
+                    @else
+                        <a href="#" class="btn btn-secondary btn-lg disabled my-5">
+                            No Student in Class
+                        </a>
+                    @endif
+                </div>
             @endif
 
         </div>

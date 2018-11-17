@@ -49,7 +49,10 @@
                     </table>
                 </div>
             @else
-                <h1 class="h1">No Student has submitted assignments yet. Check back.</h1>
+                <h1 class="h1"></h1>
+                <div class=" mt-5 mb-md-5 mb-0">
+                    <h1 class="h1 pt-5">No Student has submitted assignments yet. <br> Check back.</h1>
+                </div>
             @endif
 
         </div>

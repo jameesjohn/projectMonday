@@ -10,17 +10,24 @@
     </div>
     @endif
 </div>
-    <div role="main" class="cover my-auto">
-        <h1 class="cover-heading mt-4">Hello {{ Auth::user()->name }}</h1>
-        <p class="lead">Welcome to Electrical Electronics E-learning Platform</p>
-        <p class="lead">
-            <a href="#" class="btn btn-lg btn-secondary mt-5" data-toggle="modal" data-target="#createModalLong">Create a Class</a>
-            <a href="#" class="btn btn-lg btn-secondary mt-5" data-toggle="modal" data-target="#exampleModalLong">Create Assignment</a>
-        </p>
-        <p class="lead">
-            <a href="{{ route('lecturer.classes') }}" class="btn btn-lg btn-secondary mt-3">Show Classes</a>
-            <a href="{{ route('information') }}" class="btn btn-lg btn-secondary mt-3">Information Board</a>
-        </p>
+    <div role="main" class="cover  mb-5">
+        <h1 class="cover-heading mt-4 pt-4">Hello {{ Auth::user()->name }}</h1>
+        <p class="lead pb-5">Welcome to Electrical Electronics E-learning Platform</p>
+        <div class="row mt-5">
+            <div class="col-12 col-md-3 pt-3">
+                <a href="#" class="btn btn-lg btn-secondary form-control" data-toggle="modal" data-target="#createModalLong">Create a Class</a>
+            </div>
+            <div class="col-12 col-md-3 pt-3">
+                <a href="#" class="btn btn-lg btn-secondary form-control" data-toggle="modal" data-target="#exampleModalLong">Create Assignment</a>
+            </div>
+            <div class="col-12 col-md-3 pt-3">
+                <a href="{{ route('lecturer.classes') }}" class="btn btn-lg btn-secondary form-control">Show Classes</a>
+            </div>
+            <div class="col-12 col-md-3 pt-3">
+                <a href="{{ route('information') }}" class="btn btn-lg btn-secondary form-control">Information Board</a>
+            </div>
+        </div>
+
     </div>
 
     {{-- Create Class Modal --}}

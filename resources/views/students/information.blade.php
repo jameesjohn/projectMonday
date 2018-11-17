@@ -15,7 +15,7 @@
         @if (1)
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="mt-5">
+                    <h1 class="mt-md-3">
                         Information Board
                         @if (Auth::user()->role == 'lecturer')
                             <a data-toggle="modal"  class="btn btn-sm btn-primary" data-target="#makeModalLong">Make Announcement</a>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 bg-primary">
+                <div class="col-12 col-md-6 bg-primary mb-3 mb-md-0">
                     <h3 class="p-3">General Information</h3>
                     <ul class="list-group text-left my-3">
                       @foreach ($generalInformations as $key => $generalInformation)
@@ -37,7 +37,7 @@
                             {{$generalInformations->links()}}
                     </ul>
                 </div>
-                <div class="col-6 bg-success">
+                <div class="col-12 col-md-6 bg-success">
                     <h3 class="p-3">Level Information</h3>
                     <ul class="list-group text-left my-3">
                             @foreach ($levelInformations as $key => $levelInformation)
@@ -48,7 +48,7 @@
                                         @if (Auth::user()->role == 'lecturer')
                                         <a data-toggle="modal" data-id="{{$levelInformation->id}}" class="mx-2 float-right btn btn-danger btn-sm infoDel" data-target="#informationModalLong">Delete</a>
 
-                                            <a  class="float-right btn btn-warning btn-sm infoEdit">Edit</a>
+                                            <a href="{{route('edit.notification', $levelInformation->id)}}" class="float-right btn btn-warning btn-sm ">Edit</a>
                                         @endif
                                     </small>
                                 </li>
