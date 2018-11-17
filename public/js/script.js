@@ -14,7 +14,7 @@ $(function(){
     $('.infoDel').on('click', function(e){
         e.preventDefault();
         var id = this.getAttribute('data-id');
-        var form = $('#deleteInfo').attr('action','/assignments/' + id +'/delete');
-        // console.log(form);
+        var form = $('#deleteInfo').attr('action','/lecturer/information/' + id +'/delete');
+        console.log(form);
     })
 })

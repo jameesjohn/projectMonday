@@ -113,7 +113,6 @@ class NotificationController extends Controller
      */
     public function update(Request $request, Notification $notification)
     {
-        //
     }
 
     /**
@@ -122,8 +121,14 @@ class NotificationController extends Controller
      * @param  \App\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Notification $notification)
+    public function destroy($notificationId)
     {
-        //
+        $data = Notification::findOrFail($notificationId);
+
+        if($data->delete()){
+            return back()->with('message', 'Information Deleted');
+        }else{
+            return back()->with('message', 'Error while deleting');
+        }
     }
 }

@@ -2,6 +2,15 @@
     @extends('layouts.listing')
    @section('listing.content')
 
+   <div class="row">
+        @if(session('message'))
+        <div class="col-6 mx-auto">
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        </div>
+        @endif
+    </div>
     <div role="main" class="cover">
         @if (1)
             <div class="row">
@@ -37,9 +46,9 @@
                                     <p>{{$levelInformation->content}}</p>
                                     <small>Announcement made by : {{$levelInformation->lecturer->user->name}}
                                         @if (Auth::user()->role == 'lecturer')
-                                        <a data-toggle="modal" href="" data-id="{{$levelInformation->id}}" class="mx-2 float-right btn btn-danger btn-sm infoDel" data-target="#informationModalLong">Delete</a>
+                                        <a data-toggle="modal" data-id="{{$levelInformation->id}}" class="mx-2 float-right btn btn-danger btn-sm infoDel" data-target="#informationModalLong">Delete</a>
 
-                                            <a href="#" class="float-right btn btn-warning btn-sm">Edit</a>
+                                            <a  class="float-right btn btn-warning btn-sm infoEdit">Edit</a>
                                         @endif
                                     </small>
                                 </li>
@@ -110,6 +119,7 @@
             </div>
         </div>
     </div>
+
     @endif
 
 

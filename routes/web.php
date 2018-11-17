@@ -25,13 +25,14 @@ Route::post('/assignment/submit/{id}', 'AssignmentController@saveAssignment')->n
 Route::get('/information', 'NotificationController@index')->name('information');
 Route::get('lecturer/information/create', 'NotificationController@create')->name('information.create');
 Route::post('lecturer/information/create', 'NotificationController@store');
+Route::post('lecturer/information/{id}/delete', 'NotificationController@destroy');
 Route::get('/information/{id}', 'NotificationController@show');
 
 // Lecturers Routes
 Route::get('/lecturer/home', 'LecturerController@index')->name('lecturer.home');
 // class routes
 Route::get('/lecturer/classes', 'LecturerController@classes')->name('lecturer.classes');
-Route::get('/lecturer/newclass', 'LecturerController@newClass')->name('new.class'); 
+Route::get('/lecturer/newclass', 'LecturerController@newClass')->name('new.class');
 Route::post('/lecturer/createClass', 'LecturerController@createClass')->name('create.class');
 Route::post('/lecturer/class/{id}/delete', 'LecturerController@deleteClass')->name('delete');
 Route::get('/lecturer/class/{id}/students', 'LecturerController@seeStudentsInClass')->name('see.class.students');

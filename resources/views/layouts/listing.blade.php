@@ -33,7 +33,7 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
-                <li class="nav-item active">              
+                <li class="nav-item active">
                     <a class="nav-link" href="/listing">Home <span class="sr-only">(current)</span></a>
                 </li>
 
@@ -72,7 +72,7 @@
             </div>
         </nav>
 
-        
+
 
         <div class="container my-auto">
             @yield('listing.content')
@@ -88,6 +88,9 @@
 
     <script src="{{ asset('js/jquery.js')}}"></script>
     <script src="{{ asset('js/app.js')}}"></script>
+    <script src="{{ asset('js/script.js')}}">
+
+    </script>
     <script>
         $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') } });
     </script>
