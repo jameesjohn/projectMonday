@@ -11,7 +11,7 @@
     @endif
 </div>
     <div role="main" class="cover my-auto">
-        <h1 class="cover-heading">Hello {{ Auth::user()->name }}</h1>
+        <h1 class="cover-heading mt-4">Hello {{ Auth::user()->name }}</h1>
         <p class="lead">Welcome to Electrical Electronics E-learning Platform</p>
         <p class="lead">
             <a href="#" class="btn btn-lg btn-secondary mt-5" data-toggle="modal" data-target="#createModalLong">Create a Class</a>
@@ -75,13 +75,13 @@
                                         <strong>{{ $errors->first('title') }}</strong>
                                     </span> @endif
                         </div>
-                        <div class="form-group">
-                            <textarea id="description" rows="5" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" name="description"
-                                placeholder="Description">{{ old('title') }} </textarea>@if ($errors->has('description'))
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('description') }}</strong>
-                                    </span> @endif
-                        </div>
+                       <div class="form-group">
+                        <textarea id="description" rows="5" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" type="text" name="description"
+                            placeholder="Announcement Description" required>{{ old('title') }}</textarea> @if ($errors->has('description'))
+                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('description') }}</strong>
+                                                    </span> @endif
+                    </div>
 
                         <div class="form-label-group">
                             <select name="class_id" class="form-control" required>

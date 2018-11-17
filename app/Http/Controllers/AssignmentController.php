@@ -8,6 +8,7 @@ use App\Repositories\ClassRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
+use App\Models\Level;
 use App\Models\StudentClass;
 use App\Models\Assignment;
 
@@ -75,7 +76,7 @@ class AssignmentController extends Controller
 
     public function viewAssignmentsPerClass($id)
     {
-        $data['assignments'] = $this->assignment->getByAttributes(['class_id' => $id], 'AND');
+        $data['assignments'] = Assignment::where('class_id', $id)->orderBy('created_at', 'desc')->paginate(2);
         $data['studentsInClass'] = StudentClass::where('class_id', $id)->get()->count();
         $data['studentInClass'] = StudentClass::where('class_id', $id)->first();
         // return $data;
@@ -100,5 +101,18 @@ class AssignmentController extends Controller
         $assignment->delete();
         return back()->with('message', 'Assignment Deleted');
     }
-
+    public function editClassAssignments($id){
+        $data['assignment'] = Assignment::findOrFail($id);
+        return view("lecturer.editAssignment",$data);
+    }
+    public function updateClassAssignments(Request $request, $id){
+        $assignment = Assignment::findOrFail($id);
+        // return $assignment;
+        $requestObj = $request->except(['_token', '_method']);
+        // return $data;
+		if($assignment->update($requestObj)){
+            return redirect()->route('show.assignment', $assignment->class->id)->with("message", "Assignment Edited Successfully");
+        }
+        return redirect()->route('show.assignment', $assignment->class->id)->with("message", "Assignment Not Edited Successfully");
+    }
 }

@@ -35,12 +35,12 @@
                                 </span> @endif
                             </div>
                             <div class="form-group">
-                                <textarea id="description" rows="5" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" name="description" placeholder="Description">{{ old('title') }} </textarea>@if ($errors->has('description'))
+                                <textarea id="description" rows="5" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" type="text" name="description" placeholder="Announcement Description" required>{{ old('title') }}</textarea>
+                                @if ($errors->has('description'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('description') }}</strong>
                                 </span> @endif
                             </div>
-
                             <div class="form-label-group">
                                 <select name="class_id" class="form-control" required>
                                             <option value="">Class ...</option>

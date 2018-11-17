@@ -42,6 +42,12 @@
                     </tbody>
                 </table>
             </div>
+            <div class="row">
+                <div class="col-3 mx-auto">
+                    {{$classes->links()}}
+
+                </div>
+            </div>
         @else
             <h1> You've not created a class yet.</h1>
             <p class="lead">

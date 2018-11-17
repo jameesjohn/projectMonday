@@ -15,7 +15,7 @@
         @if (1)
             <div class="row">
                 <div class="col-md-12">
-                    <h1>
+                    <h1 class="mt-5">
                         Information Board
                         @if (Auth::user()->role == 'lecturer')
                             <a data-toggle="modal"  class="btn btn-sm btn-primary" data-target="#makeModalLong">Make Announcement</a>

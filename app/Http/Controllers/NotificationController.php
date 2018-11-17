@@ -45,7 +45,7 @@ class NotificationController extends Controller
                     ['lecturer_id', Auth::user()->lecturer->id],
                     ['type', 'level'],
                 ];
-            $data['levelInformations'] = Notification::where($conditionsLevel)->paginate(5);
+            $data['levelInformations'] = Notification::where($conditionsLevel)->orderBy('created_at', 'desc')->paginate(5);
             $data['generalInformations'] = Notification::where($conditionsGeneral)->paginate(5);
             return view('students.information',$data);
         }
@@ -75,7 +75,7 @@ class NotificationController extends Controller
          $notification = $this->notification->fillAndSave($data);
 
     	if($notification) {
-    		return redirect('/lecturer/classes')->with('message', 'Announcement Made');
+    		return back()->with('message', 'Announcement Made');
 	    }
 
 	    return ['error' => 'Cannot create a class'];

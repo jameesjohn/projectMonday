@@ -42,6 +42,8 @@ Route::get('/lecturer/class/{id}/students', 'LecturerController@seeStudentsInCla
 Route::get('lecturer/assignment/create', 'AssignmentController@createAssignment')->name('create.assignment')->middleware(['auth', 'lecturer']);
 Route::post('lecturer/assignment/create', 'AssignmentController@storeAssignment')->name('store.assignment')->middleware(['auth', 'lecturer']);
 Route::get('/lecturer/assignments/{classId}', 'AssignmentController@viewAssignmentsPerClass')->name('show.assignment')->middleware(['auth', 'lecturer']);;
+Route::get('/lecturer/assignments/{classId}/edit', 'AssignmentController@editClassAssignments')->name('edit.assignment')->middleware(['auth', 'lecturer']);;
+Route::put('/lecturer/assignments/{classId}/edit', 'AssignmentController@updateClassAssignments')->name('edit.assignment')->middleware(['auth', 'lecturer']);;
 Route::get('lecturer/assignments/submitted/{assignmentId}', 'AssignmentController@viewAssignmentSubmissions')->name('see.submission')->middleware(['auth', 'lecturer']);;
 Route::post('/assignments/{assignmentId}/delete', 'AssignmentController@deleteAssignment')->middleware(['auth', 'lecturer']);;
 

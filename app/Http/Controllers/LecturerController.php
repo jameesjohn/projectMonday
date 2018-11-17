@@ -9,6 +9,7 @@ use App\Models\AssignmentSubscription;
 use App\Models\Assignment;
 use App\Models\SchoolClass;
 use App\Models\StudentClass;
+use App\Models\Lecturer;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -47,7 +48,8 @@ class LecturerController extends Controller
 
     public function classes()
     {
-        $data['classes'] = $this->class->getByAttributes(['lecturer_id' => Auth::user()->lecturer->id], 'AND');
+        $data['classes'] = SchoolClass::where('lecturer_id', Auth::user()->lecturer->id)->orderBy('created_at', 'desc')->paginate(4);
+        // return $data;
     	return view('lecturer.listing-lecturer', $data);
     }
 

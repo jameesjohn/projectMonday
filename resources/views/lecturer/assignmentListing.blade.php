@@ -45,7 +45,8 @@
                                             <span class="badge badge-danger">{{$assignment->subscribers->count()}}</span>
                                             @endif
                                         </a>
-                                        <a data-toggle="modal" href="" data-id="{{$assignment->id}}" class="btn btn-danger assDel" data-target="#deleteModalLong">Delete Assignment </a>
+                                        <a href="{{route('edit.assignment', $assignment->id)}}" class="btn btn-warning">Edit </a>
+                                        <a data-toggle="modal" href="" data-id="{{$assignment->id}}" class="btn btn-danger assDel" data-target="#deleteModalLong">Delete </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -68,6 +69,12 @@
                                 </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="row">
+                    <div class="col-3 mx-auto">
+                        {{$assignments->links()}}
+
+                    </div>
                 </div>
             @else
                 <h1 class="h1">No Assignments created for this class yet.</h1>
