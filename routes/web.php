@@ -19,6 +19,7 @@ Route::get('/class/list', 'ClassController@myClasses')->name('my.class');
 Route::get('/listing', 'ClassController@list')->name('class.listing');
 Route::get('/class/{classId}', 'ClassController@showClass')->name('show.class');
 Route::post('/class/join', 'ClassController@joinClass')->name('join.class');
+
 // submit assignments route
 Route::get('/assignment/submit/{id}', 'AssignmentController@submitAssignment')->name('assignment.submit');
 Route::post('/assignment/submit/{id}', 'AssignmentController@saveAssignment')->name('submit.assignment.final');
@@ -40,7 +41,7 @@ Route::post('/lecturer/class/{id}/delete', 'LecturerController@deleteClass')->na
 Route::get('/lecturer/class/{id}/students', 'LecturerController@seeStudentsInClass')->name('see.class.students');
 
 
-// create assignment -- Lecturer
+// Assignment Route-- Lecturer
 Route::get('lecturer/assignment/create', 'AssignmentController@createAssignment')->name('create.assignment')->middleware(['auth', 'lecturer']);
 Route::post('lecturer/assignment/create', 'AssignmentController@storeAssignment')->name('store.assignment')->middleware(['auth', 'lecturer']);
 Route::get('/lecturer/assignments/{classId}', 'AssignmentController@viewAssignmentsPerClass')->name('show.assignment')->middleware(['auth', 'lecturer']);;
@@ -48,6 +49,16 @@ Route::get('/lecturer/assignments/{classId}/edit', 'AssignmentController@editCla
 Route::put('/lecturer/assignments/{classId}/edit', 'AssignmentController@updateClassAssignments')->name('edit.assignment')->middleware(['auth', 'lecturer']);;
 Route::get('lecturer/assignments/submitted/{assignmentId}', 'AssignmentController@viewAssignmentSubmissions')->name('see.submission')->middleware(['auth', 'lecturer']);;
 Route::post('/assignments/{assignmentId}/delete', 'AssignmentController@deleteAssignment')->middleware(['auth', 'lecturer']);;
+
+
+//ScoreSheet
+Route::get('/scoresheet/{subscriptionid}', 'ScoresheetController@scoresheet')->name('class.scoresheet');
+Route::get('/scoresheet/{studentAssignmentSubscription}/{score}', 'ScoresheetController@updateStudentScore')->name('student.updatescore');
+//Admin Route
+Route::get('/admin/home', 'AdminController@index')->name('admin.home');
+Route::get('/admin/alluser', 'AdminController@alluser')->name('admin.allUser');
+Route::get('/admin/createuser', 'AdminController@createuser')->name('admin.createuser');
+Route::get('/admin/classes', 'AdminController@viewclass')->name('admin.classes');
 
 
 Auth::routes();

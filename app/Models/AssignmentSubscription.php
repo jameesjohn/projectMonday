@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class AssignmentSubscription extends Model
 {
-	public $fillable = [
+    public $incrementing = false;
+
+    public $fillable = [
 		'id', 'student_id', 'assignment_id', 'submitted', 'filename'
 	];
 
-	public $incrementing = false;
 	public function student()
     {
     	return $this->belongsTo('App\Models\Student');
@@ -24,5 +25,10 @@ class AssignmentSubscription extends Model
     public function assignment()
     {
     	return $this->belongsTo('App\Models\Assignment');
+    }
+
+    public function score(  )
+    {
+        return  $this->hasOne('App\Models\Scoresheet');
     }
 }

@@ -30,6 +30,7 @@
                                 <th scope="col">Students Name</th>
                                 <th scope="col">Reg. Number</th>
                                 <th scope="col">Time Submitted</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,6 +46,19 @@
 
                                 </tr>
                             @endforeach
+                            <th></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+
+                                @if(1)
+                                    <a href="{{route('class.scoresheet', $subassignment->id)}}" class="btn btn-success form-control">
+                                        Scoresheet
+
+                                    </a>
+                                @endif
+                            </td>
                         </tbody>
                     </table>
                 </div>

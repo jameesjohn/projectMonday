@@ -66,7 +66,7 @@
         </div>
     </nav>
 
-    <div class="p-3 mx-auto">
+    <div class="p-3 mx-auto mt-5 py-5">
 
 
 

@@ -1,6 +1,6 @@
 @extends('layouts.listing')
     @section('listing.content')
-        <div role="main" class="cover mt-md-5">
+        <div role="main" class="cover mt-md-5 pt-5">
             <h1 class="cover-heading  mx-5 pt-lg-5">Welcome to Electrical and Electronics Engineering E-Learning Platform</h1>
 
             <p class="lead mt-2 mb-3">

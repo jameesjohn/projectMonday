@@ -34,4 +34,9 @@ class Assignment extends Model
     {
         $this->attributes['submitted_on'] = Carbon::parse($value);
     }
+
+    public function score(  )
+    {
+        return $this->belongsTo('App\Models\Student');
+    }
 }

@@ -32,4 +32,7 @@ class SchoolClass extends Model
     {
     	return $this->belongsTo('App\Models\Level', 'level_id');
     }
+
+
+
 }

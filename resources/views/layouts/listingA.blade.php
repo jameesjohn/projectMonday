@@ -4,21 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content='{{ csrf_field() }}'>
-    <title>Project Monday</title>
+    <meta name="csrf-token" content='{{ csrf_field() }}''>
+    <title>E-Blackboard System</title>
 
     <link href="{{ asset('css/app.css')}}" rel="stylesheet">
     <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css')}}" rel="stylesheet">
     <link href="{{ asset('fontawesome/css/all.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
-
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-    {{--Script--}}
-    <script src="{{asset('js/toastr.min.js')}}"></script>
 
 </head>
 
@@ -27,7 +22,7 @@
 
         <nav class="navbar navbar-expand-md navbar-dark">
             <a class="navbar-brand" href="/">
-                <h3 class="masthead-brand">E-Learning </h3>
+                <h3 class="masthead-brand">E-Learning | Admin Dashboard </h3>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
                 aria-expanded="false" aria-label="Toggle navigation">

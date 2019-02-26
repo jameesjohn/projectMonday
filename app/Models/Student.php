@@ -16,10 +16,11 @@ class Student extends Model
     	return $this->hasMany('App\Models\StudentClass');
     }
 
-    public function assignments()
-    {
-    	return $this->hasMany('App\Model\Assignment');
-    }
+//    Not working
+//    public function assignments()
+//    {
+//    	return $this->hasMany('App\Models\Assignment');
+//    }
 
     public function level()
     {

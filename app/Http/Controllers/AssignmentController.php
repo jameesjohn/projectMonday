@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Scoresheet;
 use App\Repositories\AssignmentRepository;
 use App\Repositories\AssignmentSumissionRepository;
 use App\Repositories\ClassRepository;
@@ -55,9 +56,14 @@ class AssignmentController extends Controller
 		$data['student_id'] = Auth::user()->student->id;
         $data['id'] = Uuid::uuid1();
 		$submitted = $assignment->subscribers()->create($data);
-
         if ($submitted)
         {
+            $score = new Scoresheet();
+            $score->lecturer_id = $assignment->class->lecturer->id;
+            $score->student_id = Auth::user()->student->id;
+            $score->assignment_subscription_id = $submitted->id;
+            $score->save();
+
 			return redirect()->route('show.class', $assignment->class->id)->with("message", "Assignment Submitted Successfully");
 		}
 
